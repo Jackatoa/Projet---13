@@ -9,7 +9,7 @@ PurBeurre_django/settings/production.py
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
-
+.vscode/
 # C extensions
 *.so
 

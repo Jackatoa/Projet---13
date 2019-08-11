@@ -1,25 +1,24 @@
 {% extends "blog/base.html" %}
 {% load crispy_forms_tags %}
 {% block content %}
-          <section id="cover">
-                <div id="cover-caption">
-                    <div id="container" class="container">
-                        <div class="row text-white">
-                            <div class="col-sm-6 offset-sm-3 text-center">
-                                <h1 class="display-4">Formulaire de connexion pour la gestion</h1>
-                                <div class="info-form">
-                                    <form method="POST" class="form-inlin justify-content-center">
-                                            {% csrf_token %}
-                                        <div class="form-group">
-                                                {{ form|crispy }}
-                                            </div>
-                                        <button type="submit" class="btn btn-success ">Connexion !</button>
-                                    </form>
-                                </div>
-                                <br>
-                            </div>
-                        </div>
-                    </div>
+
+             
+<div class="login container d-flex justify-content-center"">
+    <div> class="col-sm-12 my-auto text-center">
+        <h1 class="display-4">Formulaire de connexion pour l'équipe associative</h1>
+        <div class="info-form">
+            <form method="POST" class="">
+                {% csrf_token %}
+                 <div class="form-group">
+                    {{ form|crispy }}
                 </div>
-            </section>
+                <button type="submit" class="btn btn-primary ">Connexion !</button>
+            </form>
+        </div>
+        <br>
+    </div>
+</div>
+                        
+                    
+        
 {% endblock content %}

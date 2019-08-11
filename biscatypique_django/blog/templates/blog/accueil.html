@@ -2,11 +2,12 @@
 {% load static %}
 {% block content %}
 
-<div class="hero-slider flexslider clearfix" data-autoplay="yes" data-pagination="yes" data-arrows="yes" data-style="fade" data-pause="yes">
-        <ul class="slides">
-          <li class=" parallax" style="background-image:url(http://placehold.it/1280x635&amp;text=IMAGE+PLACEHOLDER);"></li>
-          <li class="parallax" style="background-image:url(http://placehold.it/1280x635&amp;text=IMAGE+PLACEHOLDER);"></li>
-        </ul>
+<div class="slider-wrapper theme-default">
+  	<div class="nivoslider clearfix" data-autoplay="yes" data-pagination="yes" data-arrows="yes" data-effect="random" data-thumbs="no" data-slices="15" data-animSpeed="500" data-pauseTime="3000" data-pauseonhover="yes">
+          <img src="{% static 'images/sky.jpg' %}">
+          <img src="{% static 'images/sky3.jpg' %}">
+          <img src="{% static 'images/sky4.jpg' %}">
+        </div>
       </div>
       <!-- End Hero Slider --> 
       <!-- Start Notice Bar -->
@@ -42,9 +43,9 @@
             <div class="row"> 
               <!-- Start Featured Blocks -->
               <div class="featured-blocks clearfix">
-                <div class="col-md-4 col-sm-4 featured-block"> <a href="our-staff.html" class="img-thumbnail"> <img src="http://placehold.it/600x400&amp;text=IMAGE+PLACEHOLDER" alt="staff"> <strong>Nos Actions</strong> <span class="more">En savoir plus</span> </a> </div>
-                <div class="col-md-4 col-sm-4 featured-block"> <a href="about.html" class="img-thumbnail"> <img src="http://placehold.it/600x400&amp;text=IMAGE+PLACEHOLDER" alt="staff"> <strong>Les bénévoles</strong> <span class="more">En savoir plus</span> </a> </div>
-                <div class="col-md-4 col-sm-4 featured-block"> <a href="sermons.html" class="img-thumbnail"> <img src="http://placehold.it/600x400&amp;text=IMAGE+PLACEHOLDER" alt="staff"> <strong>Nos Projets</strong> <span class="more">En savoir plus</span> </a> </div>
+                <div class="col-md-4 col-sm-4 featured-block"> <a href="our-staff.html" class="img-thumbnail"> <img src="{% static 'images/actions.jpg' %}" alt="staff"> <strong>Nos Actions</strong> <span class="more">En savoir plus</span> </a> </div>
+                <div class="col-md-4 col-sm-4 featured-block"> <a href="about.html" class="img-thumbnail"> <img src="{% static 'images/projets.jpg' %}" alt="staff"> <strong>Nos Projets</strong> <span class="more">En savoir plus</span> </a> </div>
+                <div class="col-md-4 col-sm-4 featured-block"> <a href="sermons.html" class="img-thumbnail"> <img src="{% static 'images/bénévoles.jpg' %}" alt="staff"> <strong>Les bénévoles</strong> <span class="more">En savoir plus</span> </a> </div>
               </div>
               <!-- End Featured Blocks --> 
             </div>
@@ -64,7 +65,7 @@
                           <h4><a href="single-event.html">{{ event.title }}</a></h4>
                           <span class="event-dayntime meta-data">{{ event.date|date:"l" }} | {{ event.starthour|date:"G:i" }}-{{ event.endhour|date:"G:i" }}</span> </div>
                         <div class="to-event-url">
-                          <div><a href="single-event.html" class="btn btn-default btn-sm">Détails</a></div>
+                          <div><a href="single-event.html" class="btn btn-warning btn-sm">Détails</a></div>
                         </div>
                       </li>
                       {% endfor %}
@@ -110,7 +111,7 @@
                         <div class="featured-sermon-video">
                           <iframe width="200" height="150" src="http://player.vimeo.com/video/19564018?title=0&amp;byline=0&amp;color=007F7B"></iframe>
                         </div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla convallis egestas rhoncus. Donec facilisis consectetur adipiscing elit. Nulla convallis egestas rhoncus</p>
+                        <p>Le 2 avril a lieu la Journée mondiale de sensibilisation à l'autisme. Elle vise à mieux informer le grand public sur les réalités de ce trouble du développement.</p>
                         </li>
                        
                     </ul>

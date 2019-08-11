@@ -1,0 +1,62 @@
+{% extends "blog/base.html" %}
+{% load static %}
+{% block content %}
+
+<div class="nav-backed-header parallax" style="background-image:url(http://placehold.it/1280x635&amp;text=IMAGE+PLACEHOLDER);">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <ol class="breadcrumb">
+            <!-- <li><a href="index.html">Accueil</a></li>
+            <li class="active">Grille</li>-->
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End Nav Backed Header --> 
+  <!-- Start Page Header -->
+  <div class="page-header">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h1>Events Grid</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End Page Header --> 
+  <!-- Start Content -->
+  <div class="main" role="main">
+    <div id="content" class="content full">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <ul class="grid-holder col-3 events-grid">
+                {% for event in events %}
+              <li class="grid-item format-standard">
+                <div class="grid-item-inner"> <a href="single-event.html" class="media-box"> <img src="http://placehold.it/600x600&amp;text=IMAGE+PLACEHOLDER" alt=""> </a>
+                  <div class="grid-content">
+                    <h3><a href="single-event.html">{{ event.title }}</a></h3>
+                    <p>{{ event.content }}</p>
+                  </div>
+                  <ul class="info-table">
+                    <li><i class="fa fa-calendar"></i> {{ event.date|date:"l d F" }} | {{ event.starthour }} - {{ event.endhour }} PM</li>
+                    <li><i class="fa fa-map-marker"></i> {{ event.adress }}</li>
+                    <li><i class="far fa-money-bill-alt"></i> {{ event.price }} €</li>
+                  </ul>
+                </div>
+              </li>
+              {% endfor %}
+            </ul>
+            <ul class="pager pull-right">
+              <li><a href="#">&larr; Older</a></li>
+              <li><a href="#">Newer &rarr;</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock content %}

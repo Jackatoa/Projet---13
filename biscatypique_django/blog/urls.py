@@ -16,11 +16,14 @@ Including another URLconf
 
 from django.urls import path
 from . import views
+from .views import EventListView, PostListView, GalleryListView, HomeView
 
 urlpatterns = [
     path('', views.home, name='blog-home'),
-    path('accueil/', views.home, name='blog-home'),
+    path('accueil/', HomeView.as_view(), name='blog-home'),
     path('about/', views.about, name='blog-about'),
-
-
+    path('gestion/', views.gestion, name='blog-gestion'),
+    path('saved_events/', EventListView.as_view(), name='blog-saved_events'),
+    path('saved_posts/', PostListView.as_view(), name='blog-saved_posts'),
+    path('saved_gallery/', GalleryListView.as_view(), name='blog-saved_gallery'),
 ]

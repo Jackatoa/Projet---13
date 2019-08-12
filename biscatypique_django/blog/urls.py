@@ -16,7 +16,14 @@ Including another URLconf
 
 from django.urls import path
 from . import views
-from .views import EventListView, PostListView, GalleryListView, HomeView
+from .views import (EventListView, 
+    PostListView, 
+    GalleryListView, 
+    HomeView, 
+    PostDetailView, 
+    PostCreateView, 
+    PostUpdateView, 
+    PostDeleteView)
 
 urlpatterns = [
     path('', views.home, name='blog-home'),
@@ -25,5 +32,9 @@ urlpatterns = [
     path('gestion/', views.gestion, name='blog-gestion'),
     path('saved_events/', EventListView.as_view(), name='blog-saved_events'),
     path('saved_posts/', PostListView.as_view(), name='blog-saved_posts'),
+    path('post/<int:pk>/', PostDetailView.as_view(), name='post-detail'),
+    path('post/new/', PostCreateView.as_view(), name='post-create'),
+    path('post/<int:pk>/update/', PostUpdateView.as_view(), name='post-update'),
+    path('post/<int:pk>/delete/', PostDeleteView.as_view(), name='post-delete'),
     path('saved_gallery/', GalleryListView.as_view(), name='blog-saved_gallery'),
 ]

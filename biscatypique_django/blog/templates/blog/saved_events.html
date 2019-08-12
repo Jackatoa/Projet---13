@@ -2,7 +2,7 @@
 {% load static %}
 {% block content %}
 
-<div class="nav-backed-header parallax" style="background-image:url(http://placehold.it/1280x635&amp;text=IMAGE+PLACEHOLDER);">
+<div class="nav-backed-header parallax" style="background-image:url({% static 'images/sky.jpg'%});">
     <div class="container">
       <div class="row">
         <div class="col-md-12">
@@ -20,7 +20,7 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-          <h1>Events Grid</h1>
+          <h1>Grille des évènements</h1>
         </div>
       </div>
     </div>
@@ -35,13 +35,13 @@
             <ul class="grid-holder col-3 events-grid">
                 {% for event in events %}
               <li class="grid-item format-standard">
-                <div class="grid-item-inner"> <a href="single-event.html" class="media-box"> <img src="http://placehold.it/600x600&amp;text=IMAGE+PLACEHOLDER" alt=""> </a>
+                <div class="grid-item-inner"> <a href="{{ event.image.url }}" class="media-box"> <img src="{{ event.image.url }}" alt=""> </a>
                   <div class="grid-content">
                     <h3><a href="single-event.html">{{ event.title }}</a></h3>
                     <p>{{ event.content }}</p>
                   </div>
                   <ul class="info-table">
-                    <li><i class="fa fa-calendar"></i> {{ event.date|date:"l d F" }} | {{ event.starthour }} - {{ event.endhour }} PM</li>
+                    <li><i class="fa fa-calendar"></i> {{ event.date|date:"l d F" }} | {{ event.starthour }} - {{ event.endhour }} </li>
                     <li><i class="fa fa-map-marker"></i> {{ event.adress }}</li>
                     <li><i class="far fa-money-bill-alt"></i> {{ event.price }} €</li>
                   </ul>

@@ -1,0 +1,43 @@
+{% extends "blog/base.html" %}
+{% block content %}
+<div class="main" role="main">
+        <div id="content" class="content full">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-12">
+                <header class="single-post-header clearfix">
+                  <h2 class="post-title postform">Suppression de l'entrée graphique : {{ object.title }}</h2>
+                </header>
+                <div class="post-content">
+                  
+                  <div class="row">
+                        <form method="POST">
+                                {% csrf_token %}
+                                
+                                <div class="form-group text-center">
+                                    <button class="btn btn-danger btn-lg" type="submit">Oui, supprimer</button>
+                                    <a class="btn btn-info btn-lg text-center" href="{% url 'gallery-detail' object.id %}">Annuler</a>
+                                </div>
+                            </form>
+                      <div class="col-md-12 margin-15 postform">
+                        
+                      
+                    
+                    <div class="clearfix"></div>
+                    <div class="col-md-12">
+                      <div id="message"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Start Sidebar -->
+              <div class="col-md-3 sidebar"> 
+                <!-- Recent Posts Widget -->
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+{% endblock content %}

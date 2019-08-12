@@ -57,6 +57,9 @@ def tsa_day(request):
 def staff(request):
     return render(request, 'blog/staff.html', {'title': 'Les bénévoles'})
 
+def presentation(request):
+    return render(request, 'blog/presentation.html', {'title': 'Présentation'})
+
 class PostListView(ListView):
     model = Post
     template_name = 'blog/saved_posts.html'
@@ -101,7 +104,7 @@ class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 
 class EventCreateView(LoginRequiredMixin, CreateView):
     model = Event
-    fields = ['title', 'content', 'link', 'image']
+    fields = ['title', 'content', 'price', 'starthour', 'endhour', 'adress', 'date', 'image']
 
     def form_valid(self, form):
         form.instance.author = self.request.user
@@ -109,7 +112,7 @@ class EventCreateView(LoginRequiredMixin, CreateView):
 
 class EventUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Event
-    fields = ['title', 'content', 'link', 'image']
+    fields = ['title', 'content', 'price', 'starthour', 'endhour', 'adress', 'date', 'image']
     
     def form_valid(self, form):
         form.instance.author = self.request.user
@@ -139,15 +142,15 @@ class EventListView(ListView):
 
 class GalleryCreateView(LoginRequiredMixin, CreateView):
     model = Gallery
-    fields = ['title', 'content', 'link', 'image']
-    
+    fields = ['title', 'image', 'date', 'location', 'occasion', 'link']
+ 
     def form_valid(self, form):
         form.instance.author = self.request.user
         return super().form_valid(form)
     
 class GalleryUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Gallery
-    fields = ['title', 'content', 'link', 'image']
+    fields = ['title', 'image', 'date', 'location', 'occasion', 'link']
         
     def form_valid(self, form):
         form.instance.author = self.request.user

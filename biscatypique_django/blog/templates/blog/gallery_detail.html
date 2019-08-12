@@ -1,6 +1,5 @@
 {% extends "blog/base.html" %}
 {% load crispy_forms_tags %}
-{% load static %}
 {% block content %}
   <!-- End Nav Backed Header --> 
   <!-- Start Page Header -->
@@ -10,8 +9,8 @@
           <div class="col-md-12">
             <ol class="breadcrumb">
               <li><a href="{% url 'blog-home' %}">Accueil</a></li>
-              <li><a href="{% url 'blog-saved_posts' %}">Publication</a></li>
-              <li class="active">{{ post.title }}</li>
+              <li><a href="{% url 'blog-saved_gallery' %}">Publication</a></li>
+              <li class="active">{{ gallery.title }}</li>
             </ol>
           </div>
         </div>
@@ -24,8 +23,8 @@
           <h1>Publication</h1>
           {% if user.is_authenticated %}
               <div>
-                  <a class="btn btn-success btn-sm mt-1 mb-1" href="{% url 'post-update' object.id %}">Mettre à jour</a>
-                  <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'post-delete' object.id %}">Supprimer</a>
+                  <a class="btn btn-success btn-sm mt-1 mb-1" href="{% url 'gallery-update' object.id %}">Mettre à jour</a>
+                  <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'gallery-delete' object.id %}">Supprimer</a>
                 </div>
         {% endif %}
         </div>
@@ -45,12 +44,11 @@
               <header class="single-post-header clearfix">
                   <h2 class="post-title">{{ object.title }}</h2>
                 </header>
-            <article class="post-content"> <span class="post-meta meta-data"><span><i class="fa fa-calendar"></i> {{ object.date_posted|date:"d F, Y" }}</span></span>
+            <article class="post-content"> <span class="post-meta meta-data"><span><i class="fa fa-calendar"></i> {{ object.date_posted|date:"d F, Y" }}</span> <span><i class="fa fa-archive"></i> Categories: <a href="#">Uncategorized</a></span></span>
               <div class="featured-image"> <img src="{{object.image.url }}" alt=""> </div>
               <p>{{ object.content }}</p><blockquote>
-                {% if object.link != 'http://salut.com' %}
-                <a href='{{ object.link }}'>Lire l'article ici !</a></blockquote>
-                {% endif %}
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla convallis egestas rhoncus.</p>
+              </blockquote>
               </article></div></div></div></div></div>
               
   {% endblock content %}

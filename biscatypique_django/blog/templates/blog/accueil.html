@@ -17,7 +17,7 @@
             <div class="col-md-3 col-sm-6 col-xs-6 notice-bar-title"> <span class="notice-bar-title-icon hidden-xs"><i class="fa fa-calendar-alt fa-3x"></i></span> <span class="title-note">Bientôt</span> <strong>Evènement à venir</strong> </div>
             <div class="col-md-3 col-sm-6 col-xs-6 notice-bar-event-title">
               {% for featuredevent in featuredevents %}
-              <h5><a href="single-event.html">{{ featuredevent.title }}</a></h5>
+              <h5><a href="{% url 'event-detail' featuredevent.id %}">{{ featuredevent.title }}</a></h5>
               <span class="meta-data">{{ featuredevent.date|date:"d F, Y" }}   {{ featuredevent.starthour }}-{{ featuredevent.endhour }}</span> </div>
               {% endfor %}
               {% load i18n %}
@@ -62,10 +62,10 @@
                       <li class="item event-item">
                         <div class="event-date"> <span class="date">{{ event.date|date:"d" }}</span> <span class="month">{{ event.date|date:"b" }}</span> </div>
                         <div class="event-detail">
-                          <h4><a href="single-event.html">{{ event.title }}</a></h4>
+                          <h4><a href="{% url 'event-detail' event.id %}">{{ event.title }}</a></h4>
                           <span class="event-dayntime meta-data">{{ event.date|date:"l" }} | {{ event.starthour|date:"G:i" }}-{{ event.endhour|date:"G:i" }}</span> </div>
                         <div class="to-event-url">
-                          <div><a href="single-event.html" class="btn btn-warning btn-sm">Détails</a></div>
+                          <div><a href="{% url 'event-detail' event.id %}" class="btn btn-warning btn-sm">Détails</a></div>
                         </div>
                       </li>
                       {% endfor %}

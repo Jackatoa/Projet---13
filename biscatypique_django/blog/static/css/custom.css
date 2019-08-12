@@ -17,48 +17,22 @@
     position: relative!important;
     margin-left:50px!important;
 }
-.post-title a:hover{
-    color:#FF9937!important;
-}
-.postnav {
-    background-color:#017D94!important;
-}
+
 .btneventmain {
     font-size:14px!important;
 }
 .nivoslider {
     max-height: 500px!important;
 }
-.postbody {
-    background-color:white!important;
-}
-.postform {
-    color:#FF9937!important;
-}
+
 .btnhome i {
     font-size:30px!important;
     position:relative!important;
     right:16px!important;
     top:5px!important;
 }
-.body {
-    background-color:#017D94!important;
-}
-.meta-data, .month, article {
-    color: #64D7EC!important;
-}
-.listing-header {
-    border-bottom: 4px solid #017D94!important;
-}
-.post{
-    color: #64D7EC!important;
-}
-.post-title a {
-    color: #64D7EC!important;
-}
-h3 {
-    color:#FF9937!important;
-}
+
+
 @media (max-width: 1000px) {
     .login {
         width: 100% !important;

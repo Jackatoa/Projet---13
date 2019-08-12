@@ -7,8 +7,8 @@
       <div class="row">
         <div class="col-md-12">
           <ol class="breadcrumb">
-            <!-- <li><a href="index.html">Accueil</a></li>
-            <li class="active">Grille</li>-->
+            <li><a href="{% url 'blog-home' %}">Accueil</a></li>
+            <li class="active">Evènements</li>
           </ol>
         </div>
       </div>
@@ -37,13 +37,21 @@
               <li class="grid-item format-standard">
                 <div class="grid-item-inner"> <a href="{{ event.image.url }}" class="media-box"> <img src="{{ event.image.url }}" alt=""> </a>
                   <div class="grid-content">
-                    <h3><a href="single-event.html">{{ event.title }}</a></h3>
+                    <h3><a href="{% url 'event-detail' event.id %}">{{ event.title }}</a></h3>
                     <p>{{ event.content }}</p>
                   </div>
                   <ul class="info-table">
-                    <li><i class="fa fa-calendar"></i> {{ event.date|date:"l d F" }} | {{ event.starthour }} - {{ event.endhour }} PM</li>
+                    <li><i class="fa fa-calendar"></i> {{ event.date|date:"l d F" }} | {{ event.starthour }} - {{ event.endhour }}</li>
                     <li><i class="fa fa-map-marker"></i> {{ event.adress }}</li>
-                    <li><i class="far fa-money-bill-alt"></i> {{ event.price }} €<span class="text-align-center btnevent"><a href="single-event.html" class="btn btn-warning btn-sm">Détails</a></span></li>
+                    <li><i class="far fa-money-bill-alt"></i> {{ event.price }} €</li>
+                    <li><span class=""><a href="{% url 'event-detail' event.id %}" class="btn btn-warning btn-sm">Détails</a></span></li>
+                      {% if user.is_authenticated %}
+                      <li>
+                          <span class="btnevent">
+                        <a class="pull-left btn btn-success btn-sm mt-1 mb-1" href="{% url 'event-update' event.id %}">Mettre à jour</a>
+                        <a class="pull-right btn btn-danger btn-sm mt-1 mb-1" href="{% url 'event-delete' event.id %}">Supprimer</a></span>
+                      </li>
+                    {% endif %}
                   </ul>
                 </div>
               </li>

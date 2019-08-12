@@ -1,16 +1,39 @@
 {% extends "blog/base.html" %}
 {% load crispy_forms_tags %}
 {% block content %}
-    <div class="content-section">
-        <form method="POST">
-            {% csrf_token %}
-            <fieldset class="form-group">
-                <legend class="border-bottom mb-4">Blog Post</legend>
-                {{ form|crispy }}
-            </fieldset>
-            <div class="form-group">
-                <button class="btn btn-outline-info" type="submit">Post</button>
+    <div class="main" role="main">
+            <div id="content" class="content full">
+              <div class="container">
+                <div class="row">
+                  <div class="col-md-12">
+                    <header class="single-post-header clearfix">
+                      <h2 class="post-title postform">Nouvelle Publication</h2>
+                    </header>
+                    <div class="post-content">
+                      
+                      <div class="row">
+                        <form method="post" id="contactform" name="contactform" class="contact-form" action="mail/contact.php">
+                            {% csrf_token %}
+                          <div class="col-md-12 margin-15 postform">
+                            {{ form|crispy }}
+                          <div class="col-md-12">
+                            <input id="submit" name="submit" type="submit" class="btn btn-primary btn-lg pull-right" value="Publier!">
+                          </div>
+                        </form>
+                        <div class="clearfix"></div>
+                        <div class="col-md-12">
+                          <div id="message"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Start Sidebar -->
+                  <div class="col-md-3 sidebar"> 
+                    <!-- Recent Posts Widget -->
+                    
+                  </div>
+                </div>
+              </div>
             </div>
-        </form>
-    </div>
+          </div>
 {% endblock content %}

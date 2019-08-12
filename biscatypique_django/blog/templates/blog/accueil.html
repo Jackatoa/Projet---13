@@ -14,7 +14,7 @@
       <div class="notice-bar">
         <div class="container">
           <div class="row">
-            <div class="col-md-3 col-sm-6 col-xs-6 notice-bar-title"> <span class="notice-bar-title-icon hidden-xs"><i class="fa fa-calendar-alt fa-3x"></i></span> <span class="title-note">Bientôt</span> <strong>Evénement à venir</strong> </div>
+            <div class="col-md-3 col-sm-6 col-xs-6 notice-bar-title"> <span class="notice-bar-title-icon hidden-xs"><i class="fa fa-calendar-alt fa-3x"></i></span> <span class="title-note">Bientôt</span> <strong>Evènement à venir</strong> </div>
             <div class="col-md-3 col-sm-6 col-xs-6 notice-bar-event-title">
               {% for featuredevent in featuredevents %}
               <h5><a href="single-event.html">{{ featuredevent.title }}</a></h5>
@@ -31,7 +31,7 @@
               <div class="timer-col"> <span id="minutes"></span> <span class="timer-type">mins</span> </div>
               <div class="timer-col"> <span id="seconds"></span> <span class="timer-type">secs</span> </div>
             </div>
-            <div class="col-md-2 col-sm-6 hidden-xs"> <a href="{% url 'blog-saved_events' %}" class="btn btn-primary btn-lg btn-block">Plus d'évènements</a> </div>
+            <div class="col-md-2 col-sm-6 hidden-xs"> <a href="{% url 'blog-saved_events' %}" class="btneventmain btn btn-primary btn-lg btn-block">Plus d'évènements</a> </div>
           </div>
         </div>
       </div>
@@ -83,10 +83,10 @@
                         {% for post in posts %}
                       <li class="item post">
                         <div class="row">
-                          <div class="col-md-4"> <a href="blog-post.html" class="media-box"> <img src="{{ post.image.url }}" alt="{{ post.title }}" class="img-thumbnail"> </a></div>
+                          <div class="col-md-4"> <a href="{{ post.image.url }}" class="media-box"> <img src="{{ post.image.url }}" alt="{{ post.title }}" class="img-thumbnail"> </a></div>
                           <div class="col-md-8">
                             <div class="post-title">
-                              <h2><a href="blog-post.html">{{ post.title }}</a></h2>
+                              <h2><a href="{% url 'post-detail' post.id %}">{{ post.title }}</a></h2>
                               <span class="meta-data"><i class="fa fa-calendar"></i> {{ post.date_posted|date:"d F, Y" }}</span></div>
                             <p>{{ post.content }}</p>
                           </div>
@@ -102,7 +102,7 @@
                 <!-- Latest Sermons -->
                 <div class="listing sermons-listing">
                   <header class="listing-header">
-                    <h3>Notre action</h3>
+                    <h3>Le rendez-vous annuel</h3>
                   </header>
                   <section class="listing-cont">
                     <ul>

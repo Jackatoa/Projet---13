@@ -1,20 +1,50 @@
 {% extends "blog/base.html" %}
+{% load crispy_forms_tags %}
 {% block content %}
-  <article class="media content-section">
-    <img class="rounded-circle article-img" src="{{ object.author.profile.image.url }}">
-    <div class="media-body">
-      <div class="article-metadata">
-        <a class="mr-2" href="#">{{ object.author }}</a>
-        <small class="text-muted">{{ object.date_posted|date:"F d, Y" }}</small>
-        {% if object.author == user %}
-          <div>
-            <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'post-update' object.id %}">Update</a>
-            <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'post-delete' object.id %}">Delete</a>
+  <!-- End Nav Backed Header --> 
+  <!-- Start Page Header -->
+  <div class="nav-backed-header postnav parallax">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <ol class="breadcrumb">
+              <li><a href="{% url 'blog-home' %}">Accueil</a></li>
+              <li><a href="{% url 'blog-saved_posts' %}">Publication</a></li>
+              <li class="active">{{ post.title }}</li>
+            </ol>
           </div>
-        {% endif %}
+        </div>
       </div>
-      <h2 class="article-title">{{ object.title }}</h2>
-      <p class="article-content">{{ object.content }}</p>
     </div>
-  </article>
-{% endblock content %}
+  <div class="page-header posttitle">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 col-sm-12">
+          <h1>{{ post.title }}</h1>
+          {% if user.is_authenticated %}
+              <div>
+                  <a class="btn btn-success btn-sm mt-1 mb-1" href="{% url 'post-update' post.id %}">Mettre à jour</a>
+                  <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'post-delete' post.id %}">Supprimer</a>
+                </div>
+        {% endif %}
+        </div>
+        <div class="col-md-8 col-sm-8">
+          <!-- Texte en italique --> 
+          </div>
+      </div>
+    </div>
+  </div>
+  <!-- End Page Header --> 
+  <!-- Start Content -->
+  <div class="main postbody" role="main">
+    <div id="content" class="content full">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <article class="post-content"> <span class="post-meta meta-data"><span><i class="fa fa-calendar"></i> {{ object.date_posted|date:"d F, Y" }}</span> <span><i class="fa fa-archive"></i> Categories: <a href="#">Uncategorized</a></span></span>
+              <div class="featured-image"> <img src="{{ post.image.url }}" alt=""> </div>
+              <p>{{ post.content }}</p><blockquote>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla convallis egestas rhoncus.</p>
+              </blockquote>
+              </article></div></div></div></div></div>
+  {% endblock content %}

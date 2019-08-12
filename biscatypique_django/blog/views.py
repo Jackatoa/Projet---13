@@ -48,6 +48,15 @@ def about(request):
 def event_presentation(request):
     return render(request, 'blog/event_presentation.html', {'title': 'Nos évènements'})
 
+def contact(request):
+    return render(request, 'blog/contact.html', {'title': 'Nous contacter'})
+
+def tsa_day(request):
+    return render(request, 'blog/tsa_day.html', {'title': 'Journée de sensibilisation à l\'autisme'})
+
+def staff(request):
+    return render(request, 'blog/staff.html', {'title': 'Les bénévoles'})
+
 class PostListView(ListView):
     model = Post
     template_name = 'blog/saved_posts.html'

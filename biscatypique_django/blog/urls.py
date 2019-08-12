@@ -54,5 +54,8 @@ urlpatterns = [
     path('gallery/new/', GalleryCreateView.as_view(), name='gallery-create'),
     path('gallery/<int:pk>/update/', GalleryUpdateView.as_view(), name='gallery-update'),
     path('gallery/<int:pk>/delete/', GalleryDeleteView.as_view(), name='gallery-delete'),
-    path('event_presentation/', views.event_presentation, name='blog-event_presentation')
+    path('presentation/', views.presentation, name='blog-presentation'),
+    path('staff/', views.staff, name='blog-staff'),
+    path('contact/', views.contact, name='blog-contact'),
+    path('tsa_day/', views.tsa_day, name='blog-tsa_day'),
 ]

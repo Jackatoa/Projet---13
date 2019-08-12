@@ -17,6 +17,24 @@
     position: relative!important;
     margin-left:50px!important;
 }
+.post-title a:hover{
+    color:#FF9937!important;
+}
+.postnav {
+    background-color:#017D94!important;
+}
+.btneventmain {
+    font-size:14px!important;
+}
+.nivoslider {
+    max-height: 500px!important;
+}
+.postbody {
+    background-color:white!important;
+}
+.postform {
+    color:#FF9937!important;
+}
 .btnhome i {
     font-size:30px!important;
     position:relative!important;
@@ -26,7 +44,7 @@
 .body {
     background-color:#017D94!important;
 }
-.meta-data, .month {
+.meta-data, .month, article {
     color: #64D7EC!important;
 }
 .listing-header {

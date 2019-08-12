@@ -23,7 +23,16 @@ from .views import (EventListView,
     PostDetailView, 
     PostCreateView, 
     PostUpdateView, 
-    PostDeleteView)
+    PostDeleteView,
+    GalleryDetailView, 
+    GalleryCreateView, 
+    GalleryUpdateView, 
+    GalleryDeleteView,
+    EventDetailView, 
+    EventCreateView, 
+    EventUpdateView, 
+    EventDeleteView,
+    )
 
 urlpatterns = [
     path('', views.home, name='blog-home'),
@@ -31,10 +40,19 @@ urlpatterns = [
     path('about/', views.about, name='blog-about'),
     path('gestion/', views.gestion, name='blog-gestion'),
     path('saved_events/', EventListView.as_view(), name='blog-saved_events'),
+    path('event/<int:pk>/', EventDetailView.as_view(), name='event-detail'),
+    path('event/new/', EventCreateView.as_view(), name='event-create'),
+    path('event/<int:pk>/update/', EventUpdateView.as_view(), name='event-update'),
+    path('event/<int:pk>/delete/', EventDeleteView.as_view(), name='event-delete'),
     path('saved_posts/', PostListView.as_view(), name='blog-saved_posts'),
     path('post/<int:pk>/', PostDetailView.as_view(), name='post-detail'),
     path('post/new/', PostCreateView.as_view(), name='post-create'),
     path('post/<int:pk>/update/', PostUpdateView.as_view(), name='post-update'),
     path('post/<int:pk>/delete/', PostDeleteView.as_view(), name='post-delete'),
     path('saved_gallery/', GalleryListView.as_view(), name='blog-saved_gallery'),
+    path('gallery/<int:pk>/', GalleryDetailView.as_view(), name='gallery-detail'),
+    path('gallery/new/', GalleryCreateView.as_view(), name='gallery-create'),
+    path('gallery/<int:pk>/update/', GalleryUpdateView.as_view(), name='gallery-update'),
+    path('gallery/<int:pk>/delete/', GalleryDeleteView.as_view(), name='gallery-delete'),
+    path('event_presentation/', views.event_presentation, name='blog-event_presentation')
 ]

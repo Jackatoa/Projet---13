@@ -41,9 +41,9 @@
                     <p>{{ event.content }}</p>
                   </div>
                   <ul class="info-table">
-                    <li><i class="fa fa-calendar"></i> {{ event.date|date:"l d F" }} | {{ event.starthour }} - {{ event.endhour }} </li>
+                    <li><i class="fa fa-calendar"></i> {{ event.date|date:"l d F" }} | {{ event.starthour }} - {{ event.endhour }} PM</li>
                     <li><i class="fa fa-map-marker"></i> {{ event.adress }}</li>
-                    <li><i class="far fa-money-bill-alt"></i> {{ event.price }} €</li>
+                    <li><i class="far fa-money-bill-alt"></i> {{ event.price }} €<span class="text-align-center btnevent"><a href="single-event.html" class="btn btn-warning btn-sm">Détails</a></span></li>
                   </ul>
                 </div>
               </li>

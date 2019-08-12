@@ -45,14 +45,8 @@ def home(request):
 def about(request):
     return HttpResponse('<h1>WESH ABOUT</h1>')
 
-class EventListView(ListView):
-    model = Event
-    template_name = 'blog/saved_events.html'
-    context_object_name = 'events'
-    paginate_by = 9
-
-    def get_queryset(self):
-        return Event.objects.all()
+def event_presentation(request):
+    return render(request, 'blog/event_presentation.html', {'title': 'Nos évènements'})
 
 class PostListView(ListView):
     model = Post
@@ -64,15 +58,7 @@ class PostListView(ListView):
 class PostDetailView(DetailView):
     model = Post
 
-class GalleryListView(ListView):
-    model = Gallery
-    template_name = 'blog/saved_gallery.html'
-    context_object_name = 'gallerys'
-    paginate_by = 9
-    ordering = ['-date_posted']
-        
-    def get_queryset(self):
-        return Gallery.objects.all()
+
 
 @login_required
 def gestion(request):
@@ -103,3 +89,80 @@ class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     
     def test_func(self):
         return True
+
+class EventCreateView(LoginRequiredMixin, CreateView):
+    model = Event
+    fields = ['title', 'content', 'link', 'image']
+
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
+
+class EventUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
+    model = Event
+    fields = ['title', 'content', 'link', 'image']
+    
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
+    
+    def test_func(self):
+        return True       
+    
+class EventDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
+    model = Event
+    success_url = '/'
+    
+    def test_func(self):
+        return True
+
+class EventDetailView(DetailView):
+    model = Event
+
+class EventListView(ListView):
+    model = Event
+    template_name = 'blog/saved_events.html'
+    context_object_name = 'events'
+    paginate_by = 9
+    
+    def get_queryset(self):
+        return Event.objects.all()    
+
+class GalleryCreateView(LoginRequiredMixin, CreateView):
+    model = Gallery
+    fields = ['title', 'content', 'link', 'image']
+    
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
+    
+class GalleryUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
+    model = Gallery
+    fields = ['title', 'content', 'link', 'image']
+        
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
+        
+    def test_func(self):
+        return True       
+        
+class GalleryDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
+    model = Gallery
+    success_url = '/'
+        
+    def test_func(self):
+        return True
+    
+class GalleryDetailView(DetailView):
+    model = Gallery
+    
+class GalleryListView(ListView):
+    model = Gallery
+    template_name = 'blog/saved_gallery.html'
+    context_object_name = 'gallerys'
+    paginate_by = 9
+    ordering = ['-date_posted']
+            
+    def get_queryset(self):
+        return Gallery.objects.all()

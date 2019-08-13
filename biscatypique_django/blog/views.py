@@ -70,9 +70,6 @@ def home(request):
     }
     return render(request, 'blog/accueil.html', context, {'title': 'Accueil'})
 
-def about(request):
-    return HttpResponse('<h1>WESH ABOUT</h1>')
-
 def event_presentation(request):
     return render(request, 'blog/event_presentation.html', {'title': 'Nos évènements'})
 def project(request):
@@ -88,6 +85,9 @@ def partners(request):
 
 def tsa_day(request):
     return render(request, 'blog/tsa_day.html', {'title': 'Journée de sensibilisation à l\'autisme'})
+
+def mention(request):
+    return render(request, 'blog/mention.html', {'title': 'Mentions légales'})
 
 def staff(request):
     return render(request, 'blog/staff.html', {'title': 'Les bénévoles'})

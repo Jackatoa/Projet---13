@@ -36,7 +36,6 @@ from .views import (EventListView,
 urlpatterns = [
     path('', views.home, name='blog-home'),
     path('accueil/', HomeView.as_view(), name='blog-home'),
-    path('about/', views.about, name='blog-about'),
     path('gestion/', views.gestion, name='blog-gestion'),
     path('saved_events/', EventListView.as_view(), name='blog-saved_events'),
     path('event/<int:pk>/', EventDetailView.as_view(), name='event-detail'),
@@ -58,6 +57,7 @@ urlpatterns = [
     path('tsa_day/', views.tsa_day, name='blog-tsa_day'),
     path('project/', views.project, name='blog-project'),
     path('action/', views.action, name='blog-action'),
-    path('partners/', views.partners, name='blog-partners'),
+    path('partnaires/', views.partners, name='blog-partners'),
+    path('mention/', views.mention, name='blog-mention'),
     
 ]

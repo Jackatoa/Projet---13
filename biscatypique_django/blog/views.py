@@ -26,9 +26,10 @@ class HomeView(ListView):
         now = datetime.datetime.now()
         events = Event.objects.filter(date__gte=now).order_by('date')[1:4]
         featuredevent = Event.objects.filter(date__gte=now).order_by('date')[:1]
+        gallerys = Gallery.objects.all().order_by('date')[:3]
         context.update({
             'events': events,
-            'gallerys': Gallery.objects.all(),
+            'gallerys': gallerys,
             'featuredevents': featuredevent
         })
         return context
@@ -78,7 +79,7 @@ def gestion(request):
 
 class PostCreateView(LoginRequiredMixin, CreateView):
     model = Post
-    fields = ['title', 'content', 'link', 'image']
+    fields = ['title', 'content', 'previewtext', 'link', 'image']
 
     def form_valid(self, form):
         form.instance.author = self.request.user
@@ -86,7 +87,7 @@ class PostCreateView(LoginRequiredMixin, CreateView):
 
 class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Post
-    fields = ['title', 'content', 'link', 'image']
+    fields = ['title', 'content','previewtext', 'link', 'image']
     
     def form_valid(self, form):
         form.instance.author = self.request.user
@@ -166,8 +167,6 @@ class GalleryDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     def test_func(self):
         return True
     
-class GalleryDetailView(DetailView):
-    model = Gallery
     
 class GalleryListView(ListView):
     model = Gallery

@@ -88,7 +88,7 @@
                             <div class="post-title">
                               <h2><a href="{% url 'post-detail' post.id %}">{{ post.title }}</a></h2>
                               <span class="meta-data"><i class="fa fa-calendar"></i> {{ post.date_posted|date:"d F, Y" }}</span></div>
-                            <p>{{ post.content }}</p>
+                            <p>{{ post.previewtext }}</p>
                           </div>
                         </div>
                       </li>
@@ -127,10 +127,10 @@
           <div class="row">
             <div class="col-md-3 col-sm-3">
               <h4>Les derniers ajouts de la galerie</h4>
-              <a href="#" class="btn btn-default btn-lg">Plus de contenu</a> </div>
-            <div class="col-md-3 col-sm-3 post format-image"> <a href="http://placehold.it/600x400&amp;text=IMAGE+PLACEHOLDER" class="media-box" data-rel="prettyPhoto[Gallery]"> <img src="http://placehold.it/600x400&amp;text=IMAGE+PLACEHOLDER" alt=""> </a> </div>
-            <div class="col-md-3 col-sm-3 post format-video"> <a href="http://youtu.be/NEFfnbQlGo8" class="media-box" data-rel="prettyPhoto[Gallery]"> <img src="http://placehold.it/600x400&amp;text=IMAGE+PLACEHOLDER" alt=""> </a> </div>
-            <div class="col-md-3 col-sm-3 post format-image"> <a href="http://placehold.it/600x400&amp;text=IMAGE+PLACEHOLDER" class="media-box" data-rel="prettyPhoto[Gallery]"> <img src="http://placehold.it/600x400&amp;text=IMAGE+PLACEHOLDER" alt=""> </a> </div>
+              <a href="{% url 'blog-saved_gallery' %}" class="btn btn-default btn-lg">Plus de contenu</a> </div>
+            {% for gallery in gallerys%}
+              <div class="col-md-3 col-sm-3 post format-image"> <a href="{{ gallery.image.url }}" class="media-box" data-rel="prettyPhoto[Gallery]"> <img src="{{gallery.image.url}}" alt="{{gallery.title}}"> </a> </div>
+            {% endfor %}
           </div>
         </div>
       </div>

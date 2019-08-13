@@ -59,5 +59,13 @@ urlpatterns = [
     path('action/', views.action, name='blog-action'),
     path('partnaires/', views.partners, name='blog-partners'),
     path('mention/', views.mention, name='blog-mention'),
+    path('tsa_descri/', views.tsa_descri, name='blog-tsa_descri'),
+    path('tsa_state/', views.tsa_state, name='blog-tsa_state'),
+    path('tsa_depis/', views.tsa_depis, name='blog-tsa_depis'),
+    path('tsa_acco/', views.tsa_acco, name='blog-tsa_acco'),
+    path('tsa_pris/', views.tsa_pris, name='blog-tsa_pris'),
+    path('tsa_alte/', views.tsa_alte, name='blog-tsa_alte'),
+    path('tsa_info/', views.tsa_info, name='blog-tsa_info'),
+    path('tsa_ress/', views.tsa_ress, name='blog-tsa_ress'),
     
 ]

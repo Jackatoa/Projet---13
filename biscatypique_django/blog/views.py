@@ -74,6 +74,30 @@ def home(request):
 def project(request):
     return render(request, 'blog/construction.html', {'title': 'Nos projets'})
 
+def tsa_depis(request):
+    return render(request, 'blog/construction.html', {'title': 'Le dépistage'})
+
+def tsa_descri(request):
+    return render(request, 'blog/construction.html', {'title': 'Description'})
+
+def tsa_state(request):
+    return render(request, 'blog/construction.html', {'title': 'Etat des lieux'})
+
+def tsa_acco(request):
+    return render(request, 'blog/construction.html', {'title': 'L\'accompagnement'})
+
+def tsa_pris(request):
+    return render(request, 'blog/construction.html', {'title': 'Prise en charge'})
+
+def tsa_alte(request):
+    return render(request, 'blog/construction.html', {'title': 'Les alternatives'})
+
+def tsa_info(request):
+    return render(request, 'blog/construction.html', {'title': 'Informations sur le TSA'})
+
+def tsa_ress(request):
+    return render(request, 'blog/construction.html', {'title': 'Les Ressources sur le TSA'})
+
 def action(request):
     return render(request, 'blog/action.html', {'title': 'Nos actions'})
 

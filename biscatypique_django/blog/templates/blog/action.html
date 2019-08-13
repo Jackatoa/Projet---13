@@ -1,0 +1,101 @@
+{% extends "blog/base.html" %}
+{% load static %}
+{% block content %}
+<!-- End Site Header -->
+<!-- Start Nav Backed Header -->
+<div class="nav-backed-header parallax"
+  style="background-image:url({% static 'images/sky.jpg' %});">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <ol class="breadcrumb">
+          <li><a href="{% url 'blog-home' %}$}">Accueil</a></li>
+          <li class="active">Nos actions</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End Nav Backed Header -->
+<!-- Start Page Header -->
+<div class="page-header">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h1>Nos actions</h1>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End Page Header -->
+<!-- Start Content -->
+<div class="main" role="main">
+  <div id="content" class="content full">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 sermon-archive">
+          <!-- Sermons Listing -->
+          <article class="post sermon">
+            <header class="post-title">
+              <div class="row">
+                <div class="col-md-12 col-sm-12">
+                  <h3><a href="single-sermon.html">Voluptatum deleniti atque corrupti</a></h3>
+                </div>
+            </header>
+            <div class="post-content">
+              <div class="row">
+                <div class="col-md-4"> <a href="single-sermon.html" class="media-box"> <img
+                      src="http://placehold.it/800x600&amp;text=IMAGE+PLACEHOLDER" alt="" class="img-thumbnail">
+                  </a> </div>
+                <div class="col-md-8">
+                  <p >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla convallis egestas rhoncus. Donec
+                    facilisis fermentum sem, ac viverra ante luctus vel. Donec vel mauris quam. Lorem ipsum dolor
+                    sit amet, consectetur adipiscing elit. Nulla convallis egestas rhoncus. Donec facilisis
+                    fermentum sem, ac viverra ante luctus vel. Donec vel mauris quam.</p>
+                  <p><a href="single-sermon.html" class="btn btn-primary">Continue reading <i
+                        class="fa fa-long-arrow-right"></i></a></p>
+                </div>
+              </div>
+            </div>
+          </article>
+          <article class="post sermon">
+            <header class="post-title">
+              <div class="row">
+                <div class="col-md-12 col-sm-12">
+                  <h3><a href="single-sermon.html">Voluptatum deleniti atque corrupti</a></h3>
+                </div>
+            </header>
+            <div class="post-content">
+              <div class="row">
+                <div class="col-md-8">
+                  <p class="actionright">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla convallis egestas rhoncus. Donec
+                    facilisis fermentum sem, ac viverra ante luctus vel. Donec vel mauris quam. Lorem ipsum dolor
+                    sit amet, consectetur adipiscing elit. Nulla convallis egestas rhoncus. Donec facilisis
+                    fermentum sem, ac viverra ante luctus vel. Donec vel mauris quam.</p>
+                  <p><a href="single-sermon.html" class="btn btn-primary">Continue reading <i
+                        class="fa fa-long-arrow-right"></i></a></p>
+                </div>
+                <div class="col-md-4"> <a href="single-sermon.html" class="media-box"> <img
+                      src="http://placehold.it/800x600&amp;text=IMAGE+PLACEHOLDER" alt="" class="img-thumbnail">
+                  </a> </div>
+              </div>
+            </div>
+          </article>
+          <ul class="pagination">
+            <li><a href="#"><i class="fa fa-chevron-left"></i></a></li>
+            <li class="active"><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+            <li><a href="#"><i class="fa fa-chevron-right"></i></a></li>
+          </ul>
+        </div>
+        <!-- Start Sidebar -->
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Start Footer -->
+
+{% endblock content %}

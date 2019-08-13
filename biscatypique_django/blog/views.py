@@ -70,21 +70,18 @@ def home(request):
     }
     return render(request, 'blog/accueil.html', context, {'title': 'Accueil'})
 
-def event_presentation(request):
-    return render(request, 'blog/event_presentation.html', {'title': 'Nos évènements'})
+
 def project(request):
-    return render(request, 'blog/projet.html', {'title': 'Nos projets'})
+    return render(request, 'blog/construction.html', {'title': 'Nos projets'})
 
 def action(request):
     return render(request, 'blog/action.html', {'title': 'Nos actions'})
 
 def partners(request):
-    return render(request, 'blog/partenaires.html', {'title': 'Nos partenaires'})
-
-
+    return render(request, 'blog/construction.html', {'title': 'Nos partenaires'})
 
 def tsa_day(request):
-    return render(request, 'blog/tsa_day.html', {'title': 'Journée de sensibilisation à l\'autisme'})
+    return render(request, 'blog/construction.html', {'title': 'Journée de sensibilisation à l\'autisme'})
 
 def mention(request):
     return render(request, 'blog/mention.html', {'title': 'Mentions légales'})
@@ -93,7 +90,7 @@ def staff(request):
     return render(request, 'blog/staff.html', {'title': 'Les bénévoles'})
 
 def presentation(request):
-    return render(request, 'blog/presentation.html', {'title': 'Présentation'})
+    return render(request, 'blog/construction.html', {'title': 'Présentation'})
 
 class PostListView(ListView):
     model = Post
@@ -104,8 +101,6 @@ class PostListView(ListView):
 
 class PostDetailView(DetailView):
     model = Post
-
-
 
 @login_required
 def gestion(request):
@@ -200,7 +195,6 @@ class GalleryDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
         
     def test_func(self):
         return True
-    
     
 class GalleryListView(ListView):
     model = Gallery

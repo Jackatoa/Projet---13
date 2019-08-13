@@ -31,11 +31,9 @@
     right:16px!important;
     top:5px!important;
 }
-
-.donate a {
-    font-size: 400px!important;
+.actionright {
+    text-align: right!important;
 }
-
 @media (max-width: 1000px) {
     .login {
         width: 100% !important;

@@ -32,6 +32,9 @@
     top:5px!important;
 }
 
+.donate a {
+    font-size: 400px!important;
+}
 
 @media (max-width: 1000px) {
     .login {

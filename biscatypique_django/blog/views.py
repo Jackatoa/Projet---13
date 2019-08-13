@@ -1,5 +1,5 @@
-from django.shortcuts import render
-from django.http import HttpResponse
+from django.shortcuts import render, redirect
+from django.http import HttpResponse, HttpResponseRedirect
 from .models import Post, Event, Gallery
 from django.views.generic import (
     ListView,
@@ -13,6 +13,31 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 import datetime
+from django.core.mail import send_mail, BadHeaderError
+from .forms import ContactForm
+import os
+
+def contact(request):
+    if request.method == 'GET':
+        form = ContactForm()
+    else:
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            cd = form.cleaned_data
+            subject = cd['sujet']
+            message = 'L\'email vient de {}... Le message est {} .. Email est {}'.format(cd['nom'], cd['message'], cd['email'])
+            Email = '{}'.format(cd['email'])
+            try:
+                send_mail(subject, message , Email, [os.environ.get("EMAIL_USER")])
+            except BadHeaderError:
+                return HttpResponse('Invalid header found.')
+            messages.success(request, f'Votre message a bien été envoyé !')
+            return redirect('blog-home')
+    return render(request, "blog/contact.html", {'form': form}, {'title': 'Nous contacter'})
+
+
+def successView(request):
+    return HttpResponse('Success! Thank you for your message.')
 
 class HomeView(ListView):
     template_name = 'blog/accueil.html'
@@ -49,8 +74,6 @@ def about(request):
 def event_presentation(request):
     return render(request, 'blog/event_presentation.html', {'title': 'Nos évènements'})
 
-def contact(request):
-    return render(request, 'blog/contact.html', {'title': 'Nous contacter'})
 
 def tsa_day(request):
     return render(request, 'blog/tsa_day.html', {'title': 'Journée de sensibilisation à l\'autisme'})
@@ -177,3 +200,4 @@ class GalleryListView(ListView):
             
     def get_queryset(self):
         return Gallery.objects.all()
+

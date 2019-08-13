@@ -35,7 +35,7 @@ if(get_magic_quotes_gpc()) {
 // Example $address = "joe.doe@yourdomain.com";
 
 //$address = "example@themeforest.net";
-$address = "info@imithemes.com";
+$address = "xavier.endres@gmail.com";
 
 
 // Configuration option.
@@ -43,7 +43,7 @@ $address = "info@imithemes.com";
 
 // Example, $e_subject = '$name . ' has contacted you via Your Website.';
 
-$e_subject = 'Contact Form';
+$e_subject = 'Formulaire de Contact Biscatypique';
 
 
 // Configuration option.

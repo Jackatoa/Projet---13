@@ -45,6 +45,7 @@ class HomeView(ListView):
     model = Post
     ordering = ['-date_posted']
     paginate_by = '3'
+    
 
     def get_context_data(self, **kwargs):
         context = super(HomeView, self).get_context_data(**kwargs)
@@ -55,7 +56,8 @@ class HomeView(ListView):
         context.update({
             'events': events,
             'gallerys': gallerys,
-            'featuredevents': featuredevent
+            'featuredevents': featuredevent,
+            'title' : 'Accueil'
         })
         return context
 
@@ -73,6 +75,15 @@ def about(request):
 
 def event_presentation(request):
     return render(request, 'blog/event_presentation.html', {'title': 'Nos évènements'})
+def project(request):
+    return render(request, 'blog/projet.html', {'title': 'Nos projets'})
+
+def action(request):
+    return render(request, 'blog/action.html', {'title': 'Nos actions'})
+
+def partners(request):
+    return render(request, 'blog/partenaires.html', {'title': 'Nos partenaires'})
+
 
 
 def tsa_day(request):

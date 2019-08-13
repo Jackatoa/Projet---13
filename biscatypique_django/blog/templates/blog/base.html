@@ -1,35 +1,39 @@
 {% load static %}
 <!DOCTYPE html>
 <html class="no-js">
-    <head>
-        <!-- Basic Page Needs
+
+<head>
+  <!-- Basic Page Needs
   ================================================== -->
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<meta name="description" content="">
-<meta name="keywords" content="">
-<meta name="author" content="">
-<!-- Mobile Specific Metas
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta name="author" content="">
+  <!-- Mobile Specific Metas
   ================================================== -->
-<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
-<meta name="format-detection" content="telephone=no">
-<!-- CSS
+  <meta name="viewport"
+    content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+  <meta name="format-detection" content="telephone=no">
+  <!-- CSS
   ================================================== -->
-<link href="{% static 'css/bootstrap.css' %}" rel="stylesheet" type="text/css">
-<link href="{% static 'plugins/mediaelement/mediaelementplayer.css' %}" rel="stylesheet" type="text/css">
-<link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css">
-<link href="{% static 'plugins/prettyphoto/css/prettyPhoto.css' %}" rel="stylesheet" type="text/css">
-<!--[if lte IE 8]><link rel="stylesheet" type="text/css" href="css/ie8.css" media="screen" /><![endif]-->
-<!-- Color Style -->
-<link rel="stylesheet" href="{% static 'plugins/nivoslider/themes/default/default.css' %}" type="text/css" media="screen" />
-<link href="{% static 'colors/color7.css' %}" rel="stylesheet" type="text/css">
-<link rel="stylesheet" href="{% static 'plugins/nivoslider/nivo-slider.css' %}" type="text/css" media="screen" /> 
-<link href="{% static 'css/custom.css' %}" rel="stylesheet" type="text/css">
-<!-- SCRIPTS
+  <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet" type="text/css">
+  <link href="{% static 'plugins/mediaelement/mediaelementplayer.css' %}" rel="stylesheet" type="text/css">
+  <link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css">
+  <link href="{% static 'plugins/prettyphoto/css/prettyPhoto.css' %}" rel="stylesheet" type="text/css">
+  <!--[if lte IE 8]><link rel="stylesheet" type="text/css" href="css/ie8.css" media="screen" /><![endif]-->
+  <!-- Color Style -->
+  <link rel="stylesheet" href="{% static 'plugins/nivoslider/themes/default/default.css' %}" type="text/css"
+    media="screen" />
+  <link href="{% static 'colors/color7.css' %}" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="{% static 'plugins/nivoslider/nivo-slider.css' %}" type="text/css" media="screen" />
+  <link href="{% static 'css/custom.css' %}" rel="stylesheet" type="text/css">
+  <!-- SCRIPTS
   ================================================== -->
   <script src="https://kit.fontawesome.com/ca341b8d56.js"></script>
   <div id="fb-root"></div>
-<script async defer crossorigin="anonymous" src="https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v4.0"></script>
-<script src="{% static 'js/modernizr.js"></script><!-- Modernizr -->
+  <script async defer crossorigin="anonymous"
+    src="https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v4.0"></script>
+  <script src="{% static 'js/modernizr.js"></script><!-- Modernizr -->
         {% if title %}
             <title>Biscatypique - {{ title }}</title>
         {% else %}
@@ -38,153 +42,163 @@
     </head>
 
     <body>
-            <div class="body"> 
+            <div class=" body">
                     <!-- Start Site Header -->
-                    <header class="site-header">
-                      <div class="topbar">
-                        <div class="container">
-                          <div class="row">
-                            <div class="col-md-4 col-sm-6 col-xs-8">
-                              <h1 class="logo"> <a href="{% url 'blog-home' %}">BISC'ATYPIQUE </h1>
-                            </div>
-                            <div class="col-md-8 col-sm-6 col-xs-4">
-                              <ul class="top-navigation hidden-sm hidden-xs">
-                                <li><a href="{% url 'blog-contact' %}">Contact</a></li>
-                                <li><a href="{% url 'blog-contact' %}">Calendrier</a></li>
-                                <li><a href="{% url 'blog-contact' %}">Soutenez nous</a></li>
-                              </ul>
-                              <a href="#" class="visible-sm visible-xs menu-toggle"><i class="fa fa-bars"></i></a> </div>
+  <header class="site-header">
+    <div class="topbar">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4 col-sm-6 col-xs-8">
+            <h1 class="logo"> <a href="{% url 'blog-home' %}">BISC'ATYPIQUE </h1>
+          </div>
+          <div class="col-md-8 col-sm-6 col-xs-4">
+            <ul class="top-navigation hidden-sm hidden-xs">
+              <li><a href="{% url 'blog-contact' %}">Contact</a></li>
+              <li><a href="{% url 'blog-contact' %}">Calendrier</a></li>
+              <li><a href="{% url 'blog-contact' %}">Soutenez nous</a></li>
+            </ul>
+            <a href="#" class="visible-sm visible-xs menu-toggle"><i class="fa fa-bars"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="main-menu-wrapper">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <nav class="navigation">
+              <ul class="sf-menu">
+                <li><a class="btn btnhome btn-primary" href="{% url 'blog-home' %}"><i
+                      class="fas fa-home fa-5x"></i></a>
+                </li>
+                <li><a href="about.html">L'association</a>
+                  <ul class="dropdown">
+                    <li><a href="{% url 'blog-presentation' %}">Présentation</a></li>
+                    <li><a href="{% url 'blog-staff' %}">L'équipe</a></li>
+                    <li><a href="{% url 'blog-contact' %}">Contact</a></li>
+                    <li><a href="{% url 'blog-saved_posts' %}">Nouvelles</a></li>
+                  </ul>
+                </li>
+                <li><a href="events.html">Les événements</a>
+                  <ul class="dropdown">
+                    <li><a href="google-calendar.html">Présentation</a></li>
+                    <li><a href="{% url 'blog-saved_events' %}">A venir</a></li>
+                    <li><a href="{% url 'blog-tsa_day' %}">Journée de sensibilisation à l'autisme</a></li>
+                  </ul>
+                </li>
+
+                </li>
+                <li class="megamenu"><a href="shortcodes.html">L'autisme</a>
+                  <ul class="dropdown">
+                    <li>
+                      <div class="megamenu-container container">
+                        <div class="row">
+                          <div class="col-md-3 hidden-sm hidden-xs"> <span class="megamenu-sub-title"><i
+                                class="fa fa-bell"></i> Le TSA en vidéo</span>
+                            <iframe width="200" height="150"
+                              src="https://www.youtube.com/embed/Ls38oqKOKbQ?title=0&amp;byline=0&amp;color=007F7B"></iframe>
+                          </div>
+                          <div class="col-md-3"> <span class="megamenu-sub-title"><i class="fas fa-question-circle"></i>
+                              Qu'est ce que c'est ?</span>
+                            <ul class="sub-menu">
+                              <li><a href="ministry.html">Description</a></li>
+                              <li><a href="ministry.html">Etat des lieux</a></li>
+                              <li><a href="ministry.html">Dépistage</a></li>
+                            </ul>
+                          </div>
+                          <div class="col-md-3"> <span class="megamenu-sub-title"><i class="fas fa-book"></i> En
+                              pratique</span>
+                            <ul class="sub-menu">
+                              <li><a href="single-event.html">L'accompagnement</a></li>
+                              <li><a href="single-event.html">La prise en charge</a> </li>
+                              <li><a href="single-event.html">Les alternatives</a> </li>
+                            </ul>
+                          </div>
+                          <div class="col-md-3"> <span class="megamenu-sub-title"><i class="fa fa-cog"></i> Pour aller
+                              plus loin</span>
+                            <ul class="sub-menu">
+                              <li><a href="shortcodes.html">Sites d'informations</a></li>
+                              <li><a href="typography.html">Ressources</a></li>
+                            </ul>
                           </div>
                         </div>
                       </div>
-                      <div class="main-menu-wrapper">
-                        <div class="container">
-                          <div class="row">
-                            <div class="col-md-12">
-                              <nav class="navigation">
-                                <ul class="sf-menu">
-                                  <li><a class="btn btnhome btn-primary" href="{% url 'blog-home' %}"><i class="fas fa-home fa-5x"></i></a>
-                                  </li>
-                                  <li><a href="about.html">L'association</a>
-                                    <ul class="dropdown">
-                                      <li><a href="about.html">Présentation</a></li>
-                                      <li><a href="our-staff.html">L'équipe</a></li>
-                                      <li><a href="contact.html">Contact</a></li>
-                                    </ul>
-                                  </li>
-                                  <li><a href="events.html">Les événements</a>
-                                    <ul class="dropdown">
-                                      <li><a href="google-calendar.html">Présentation</a></li>
-                                      <li><a href="{% url 'blog-saved_events' %}">A venir</a></li>
-                                      <li><a href="events-calendar.html">Journée de sensibilisation à l'autisme</a></li>
-                                    </ul>
-                                  </li>
-                                  
-                                    </li>
-                                  <li class="megamenu"><a href="shortcodes.html">L'autisme</a>
-                                    <ul class="dropdown">
-                                      <li>
-                                        <div class="megamenu-container container">
-                                          <div class="row">
-                                            <div class="col-md-3 hidden-sm hidden-xs"> <span class="megamenu-sub-title"><i class="fa fa-bell"></i> Dernière vidéo</span>
-                                              <iframe width="200" height="150" src="http://player.vimeo.com/video/19564018?title=0&amp;byline=0&amp;color=007F7B"></iframe>
-                                            </div>
-                                            <div class="col-md-3"> <span class="megamenu-sub-title"><i class="fa fa-pagelines"></i> Nos Partenaires</span>
-                                              <ul class="sub-menu">
-                                                <li><a href="ministry.html">Women's Ministry</a></li>
-                                                <li><a href="ministry.html">Men's Ministry</a></li>
-                                                <li><a href="ministry.html">Children's Ministry</a></li>
-                                                <li><a href="ministry.html">Youth Ministry</a></li>
-                                                <li><a href="ministry.html">Prayer Requests</a></li>
-                                              </ul>
-                                            </div>
-                                            <div class="col-md-3"> <span class="megamenu-sub-title"><i class="fa fa-clock-o"></i> Nos événements</span>
-                                              <ul class="sub-menu">
-                                                <li><a href="single-event.html">Monday Prayer</a> <span class="meta-data">Monday | 06:00 PM</span> </li>
-                                                <li><a href="single-event.html">Staff members meet</a> <span class="meta-data">Tuesday | 08:00 AM</span> </li>
-                                                <li><a href="single-event.html">Evening Prayer</a> <span class="meta-data">Friday | 07:00 PM</span> </li>
-                                              </ul>
-                                            </div>
-                                            <div class="col-md-3"> <span class="megamenu-sub-title"><i class="fa fa-cog"></i> Features</span>
-                                              <ul class="sub-menu">
-                                                <li><a href="shortcodes.html">Shortcodes</a></li>
-                                                <li><a href="typography.html">Typography</a></li>
-                                                  <li><a href="shop.html">Shop <span class="label label-danger">New</span></a></li>
-                                                  <li><a href="shop-sidebar.html">Shop Sidebar <span class="label label-danger">New</span></a></li>
-                                                  <li><a href="shop-product.html">Single Product <span class="label label-danger">New</span></a></li>
-                                              </ul>
-                                            </div>
-                                          </div>
-                                        </div>
-                                      </li>
-                                    </ul>
-                                  </li>
-                                  <li><a href="causes.html">Nos partenaires</a>
-                                  <li><a href="gallery-2cols-pagination.html">Gallerie</a>
-                                </li>
-                                </ul>
-                              </nav>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </header>
-        {% block content %}{% endblock %}
-        <footer class="site-footer">
-                <div class="container">
-                  <div class="row"> 
-                    <!-- Start Footer Widgets -->
-                    <div class="col-md-4 col-sm-4 widget footer-widget">
-                      <h4 class="footer-widget-title">A propos de l'association</h4>
-                      <img src="{% static 'images/logo.png' %}" alt="Logo">
-                      <div class="spacer-20"></div>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla convallis egestas rhoncus. Donec facilisis consectetur adipiscing elit. Nulla convallis egestas rhoncus</p>
-                    </div>
-                    <div class="col-md-4 col-sm-4 widget footer-widget">
-                      <h4 class="footer-widget-title">Fil principal</h4>
-                      <ul>
-                        <li><a href="{% url 'blog-home' %}">Accueil</a></li>
-                        <li><a href="about.html">A propos de nous</a></li>
-                        <li><a href="{% url 'blog-saved_events' %}">Les événements</a></li>
-                        {% if user.is_authenticated %}
-                        <li><a href="{% url 'blog-gestion' %}">Gestion</a></li>
-                        <li><a href="{% url 'logout' %}">Se déconnecter</a></li>
-                        {% else %}
-                        <li><a href="{% url 'login' %}">Se connecter</a></li>
-                        {% endif %}
-                      </ul>
-                    </div>
-                    <div class="col-md-4 col-sm-4 widget footer-widget">
-                      <h4 class="footer-widget-title">Nous suivre sur Facebook</h4>
-                      <div class="fb-page" data-href="https://www.facebook.com/Biscatypique" data-tabs="timeline" data-width="" data-height="" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/Biscatypique" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/Biscatypique">Biscatypique</a></blockquote></div>
-                    </div>
-                  </div>
-                </div>
-              </footer>
-              <footer class="site-footer-bottom">
-                <div class="container">
-                  <div class="row">
-                    <div class="copyrights-col-left col-md-6 col-sm-6">
-                      <p>&copy; 2019 Biscatypique créé par Xavier Endres. Tous droits réservés.</p>
-                    </div>
-                    <div class="copyrights-col-right col-md-6 col-sm-6">
-                        <a>Mentions légales</a>
-                      </div>
-                  </div>
-                </div>
-              </footer>
-              <!-- End Footer --> 
-              <a id="back-to-top"><i class="fa fa-angle-double-up"></i></a> 
-            </div>
-            <script src="{% static 'js/jquery-2.0.0.min.js' %}"></script> <!-- Jquery Library Call --> 
-            <script src="{% static 'plugins/prettyphoto/js/prettyphoto.js' %}"></script> <!-- PrettyPhoto Plugin --> 
-            <script src="{% static 'js/helper-plugins.js' %}"></script> <!-- Plugins --> 
-            <script src="{% static 'js/bootstrap.js' %}"></script> <!-- UI --> 
-            <script src="{% static 'js/waypoints.js' %}"></script> <!-- Waypoints --> 
-            <script src="{% static 'plugins/mediaelement/mediaelement-and-player.min.js' %}"></script> <!-- MediaElements --> 
-            <script src="{% static 'js/init.js' %}"></script> <!-- All Scripts --> 
-            <script src="{% static 'plugins/nivoslider/jquery.nivo.slider.js' %}"></script>
-            <script src="{% static 'plugins/flexslider/js/jquery.flexslider.js' %}"></script> <!-- FlexSlider --> 
-            <script src="{% static 'plugins/countdown/js/jquery.countdown.min.js' %}"></script> <!-- Jquery Timer -->
-    </body>
+                    </li>
+                  </ul>
+                </li>
+                <li><a href="causes.html">Nos partenaires</a>
+                <li><a href="{% url 'blog-saved_gallery' %}">Gallerie</a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  {% block content %}{% endblock %}
+  <footer class="site-footer">
+    <div class="container">
+      <div class="row">
+        <!-- Start Footer Widgets -->
+        <div class="col-md-4 col-sm-4 widget footer-widget">
+          <h4 class="footer-widget-title">A propos de l'association</h4>
+          <img src="{% static 'images/logo.png' %}" alt="Logo">
+          <div class="spacer-20"></div>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla convallis egestas rhoncus. Donec facilisis
+            consectetur adipiscing elit. Nulla convallis egestas rhoncus</p>
+        </div>
+        <div class="col-md-4 col-sm-4 widget footer-widget">
+          <h4 class="footer-widget-title">Fil principal</h4>
+          <ul>
+            <li><a href="{% url 'blog-home' %}">Accueil</a></li>
+            <li><a href="about.html">A propos de nous</a></li>
+            <li><a href="{% url 'blog-saved_events' %}">Les événements</a></li>
+            {% if user.is_authenticated %}
+            <li><a href="{% url 'blog-gestion' %}">Gestion</a></li>
+            <li><a href="{% url 'logout' %}">Se déconnecter</a></li>
+            {% else %}
+            <li><a href="{% url 'login' %}">Se connecter</a></li>
+            {% endif %}
+          </ul>
+        </div>
+        <div class="col-md-4 col-sm-4 widget footer-widget">
+          <h4 class="footer-widget-title">Nous suivre sur Facebook</h4>
+          <div class="fb-page" data-href="https://www.facebook.com/Biscatypique" data-tabs="timeline" data-width=""
+            data-height="" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false"
+            data-show-facepile="true">
+            <blockquote cite="https://www.facebook.com/Biscatypique" class="fb-xfbml-parse-ignore"><a
+                href="https://www.facebook.com/Biscatypique">Biscatypique</a></blockquote>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <footer class="site-footer-bottom">
+    <div class="container">
+      <div class="row">
+        <div class="copyrights-col-left col-md-6 col-sm-6">
+          <p>&copy; 2019 Biscatypique créé par Xavier Endres. Tous droits réservés.</p>
+        </div>
+        <div class="copyrights-col-right col-md-6 col-sm-6">
+          <a>Mentions légales</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- End Footer -->
+  <a id="back-to-top"><i class="fa fa-angle-double-up"></i></a>
+  </div>
+  <script src="{% static 'js/jquery-2.0.0.min.js' %}"></script> <!-- Jquery Library Call -->
+  <script src="{% static 'plugins/prettyphoto/js/prettyphoto.js' %}"></script> <!-- PrettyPhoto Plugin -->
+  <script src="{% static 'js/helper-plugins.js' %}"></script> <!-- Plugins -->
+  <script src="{% static 'js/bootstrap.js' %}"></script> <!-- UI -->
+  <script src="{% static 'js/waypoints.js' %}"></script> <!-- Waypoints -->
+  <script src="{% static 'plugins/mediaelement/mediaelement-and-player.min.js' %}"></script> <!-- MediaElements -->
+  <script src="{% static 'js/init.js' %}"></script> <!-- All Scripts -->
+  <script src="{% static 'plugins/nivoslider/jquery.nivo.slider.js' %}"></script>
+  <script src="{% static 'plugins/flexslider/js/jquery.flexslider.js' %}"></script> <!-- FlexSlider -->
+  <script src="{% static 'plugins/countdown/js/jquery.countdown.min.js' %}"></script> <!-- Jquery Timer -->
+  </body>
+
 </html>

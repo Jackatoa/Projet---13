@@ -3,148 +3,171 @@
 {% block content %}
 
 <div class="slider-wrapper theme-default">
-  	<div class="nivoslider clearfix" data-autoplay="yes" data-pagination="yes" data-arrows="yes" data-effect="random" data-thumbs="no" data-slices="15" data-animSpeed="500" data-pauseTime="3000" data-pauseonhover="yes">
-          <img src="{% static 'images/sky.jpg' %}">
-          <img src="{% static 'images/sky3.jpg' %}">
-          <img src="{% static 'images/sky4.jpg' %}">
-        </div>
+  <div class="nivoslider clearfix" data-autoplay="yes" data-pagination="yes" data-arrows="yes" data-effect="random"
+    data-thumbs="no" data-slices="15" data-animSpeed="500" data-pauseTime="3000" data-pauseonhover="yes">
+    <img src="{% static 'images/sky.jpg' %}">
+    <img src="{% static 'images/sky3.jpg' %}">
+    <img src="{% static 'images/sky4.jpg' %}">
+  </div>
+</div>
+<!-- End Hero Slider -->
+<!-- Start Notice Bar -->
+<div class="notice-bar">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3 col-sm-6 col-xs-6 notice-bar-title"> <span class="notice-bar-title-icon hidden-xs"><i
+            class="fa fa-calendar-alt fa-3x"></i></span> <span class="title-note">Bientôt</span> <strong>Evènement à
+          venir</strong> </div>
+      <div class="col-md-3 col-sm-6 col-xs-6 notice-bar-event-title">
+        {% for featuredevent in featuredevents %}
+        <h5><a href="{% url 'event-detail' featuredevent.id %}">{{ featuredevent.title }}</a></h5>
+        <span class="meta-data">{{ featuredevent.date|date:"d F, Y" }}
+          {{ featuredevent.starthour }}-{{ featuredevent.endhour }}</span> </div>
+      {% endfor %}
+      {% load i18n %}
+      {% language 'en' %}
+      {% for featuredevent in featuredevents %}
+      <div id="counter" class="col-md-4 col-sm-6 col-xs-12 counter" data-date="{{ featuredevent.date|date:'F d, Y' }}">
+        {% endfor %}
+        {% endlanguage %}
+        <div class="timer-col"> <span id="days"></span> <span class="timer-type">jours</span> </div>
+        <div class="timer-col"> <span id="hours"></span> <span class="timer-type">heures</span> </div>
+        <div class="timer-col"> <span id="minutes"></span> <span class="timer-type">mins</span> </div>
+        <div class="timer-col"> <span id="seconds"></span> <span class="timer-type">secs</span> </div>
       </div>
-      <!-- End Hero Slider --> 
-      <!-- Start Notice Bar -->
-      <div class="notice-bar">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-3 col-sm-6 col-xs-6 notice-bar-title"> <span class="notice-bar-title-icon hidden-xs"><i class="fa fa-calendar-alt fa-3x"></i></span> <span class="title-note">Bientôt</span> <strong>Evènement à venir</strong> </div>
-            <div class="col-md-3 col-sm-6 col-xs-6 notice-bar-event-title">
-              {% for featuredevent in featuredevents %}
-              <h5><a href="{% url 'event-detail' featuredevent.id %}">{{ featuredevent.title }}</a></h5>
-              <span class="meta-data">{{ featuredevent.date|date:"d F, Y" }}   {{ featuredevent.starthour }}-{{ featuredevent.endhour }}</span> </div>
-              {% endfor %}
-              {% load i18n %}
-              {% language 'en' %}
-              {% for featuredevent in featuredevents %}
-            <div id="counter" class="col-md-4 col-sm-6 col-xs-12 counter" data-date="{{ featuredevent.date|date:'F d, Y' }}">
-              {% endfor %}
-              {% endlanguage %}
-              <div class="timer-col"> <span id="days"></span> <span class="timer-type">jours</span> </div>
-              <div class="timer-col"> <span id="hours"></span> <span class="timer-type">heures</span> </div>
-              <div class="timer-col"> <span id="minutes"></span> <span class="timer-type">mins</span> </div>
-              <div class="timer-col"> <span id="seconds"></span> <span class="timer-type">secs</span> </div>
-            </div>
-            <div class="col-md-2 col-sm-6 hidden-xs"> <a href="{% url 'blog-saved_events' %}" class="btneventmain btn btn-primary btn-lg btn-block">Plus d'évènements</a> </div>
+      <div class="col-md-2 col-sm-6 hidden-xs"> <a href="{% url 'blog-saved_events' %}"
+          class="btneventmain btn btn-primary btn-lg btn-block">Plus d'évènements</a> </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row justify-content-md-center">
+    <div class="col-md-12">
+      {% if messages %}
+      {% for message in messages %}
+      <div class="alert alert-{{ message.tags }} text-align-center">
+        {{ message }}
+      </div>
+      {% endfor %}
+      {% endif %}
+
+    </div>
+  </div>
+</div>
+<!-- End Notice Bar -->
+<!-- Start Content -->
+<div class="main" role="main">
+  <div id="content" class="content full">
+    <div class="container">
+      <div class="row">
+        <!-- Start Featured Blocks -->
+        <div class="featured-blocks clearfix">
+          <div class="col-md-4 col-sm-4 featured-block"> <a href="{% url 'blog-action' %}" class="img-thumbnail"> <img
+                src="{% static 'images/actions.jpg' %}" alt="staff"> <strong>Nos Actions</strong> <span class="more">En
+                savoir plus</span> </a> </div>
+          <div class="col-md-4 col-sm-4 featured-block"> <a href="{% url 'blog-project' %}" class="img-thumbnail"> <img
+                src="{% static 'images/projets.jpg' %}" alt="staff"> <strong>Nos Projets</strong> <span class="more">En
+                savoir plus</span> </a> </div>
+          <div class="col-md-4 col-sm-4 featured-block"> <a href="{% url 'blog-staff' %}" class="img-thumbnail"> <img
+                src="{% static 'images/bénévoles.jpg' %}" alt="staff"> <strong>Les bénévoles</strong> <span
+                class="more">En savoir plus</span> </a> </div>
+        </div>
+        <!-- End Featured Blocks -->
+      </div>
+      <div class="row">
+        <div class="col-md-8 col-sm-6">
+          <!-- Events Listing -->
+          <div class="listing events-listing">
+            <header class="listing-header">
+              <h3>Plus d'évènements à venir</h3>
+            </header>
+            <section class="listing-cont">
+              <ul>
+                {% for event in events %}
+                <li class="item event-item">
+                  <div class="event-date"> <span class="date">{{ event.date|date:"d" }}</span> <span
+                      class="month">{{ event.date|date:"b" }}</span> </div>
+                  <div class="event-detail">
+                    <h4><a href="{% url 'event-detail' event.id %}">{{ event.title }}</a></h4>
+                    <span class="event-dayntime meta-data">{{ event.date|date:"l" }} |
+                      {{ event.starthour|date:"G:i" }}-{{ event.endhour|date:"G:i" }}</span>
+                  </div>
+                  <div class="to-event-url">
+                    <div><a href="{% url 'event-detail' event.id %}" class="btn btn-warning btn-sm">Détails</a></div>
+                  </div>
+                </li>
+                {% endfor %}
+              </ul>
+            </section>
+          </div>
+          <div class="spacer-30"></div>
+          <!-- Latest News -->
+          <div class="listing post-listing">
+            <header class="listing-header">
+              <h3>Dernières nouvelles</h3>
+            </header>
+            <section class="listing-cont">
+              <ul>
+                {% for post in posts %}
+                <li class="item post">
+                  <div class="row">
+                    <div class="col-md-4"> <a href="{{ post.image.url }}" class="media-box"> <img
+                          src="{{ post.image.url }}" alt="{{ post.title }}" class="img-thumbnail"> </a></div>
+                    <div class="col-md-8">
+                      <div class="post-title">
+                        <h2><a href="{% url 'post-detail' post.id %}">{{ post.title }}</a></h2>
+                        <span class="meta-data"><i class="fa fa-calendar"></i>
+                          {{ post.date_posted|date:"d F, Y" }}</span>
+                      </div>
+                      <p>{{ post.previewtext }}</p>
+                    </div>
+                  </div>
+                </li>
+                {% endfor %}
+              </ul>
+            </section>
+          </div>
+        </div>
+        <!-- Start Sidebar -->
+        <div class="col-md-4 col-sm-6">
+          <!-- Latest Sermons -->
+          <div class="listing sermons-listing">
+            <header class="listing-header">
+              <h3>Le rendez-vous annuel</h3>
+            </header>
+            <section class="listing-cont">
+              <ul>
+                <li class="item sermon featured-sermon"> <span class="date">Feb 14, 2019</span>
+                  <h4><a href="single-sermon.html">Journée de sensibilisation à l'autisme</a></h4>
+                  <div class="featured-sermon-video">
+                    <iframe width="200" height="150"
+                      src="http://player.vimeo.com/video/19564018?title=0&amp;byline=0&amp;color=007F7B"></iframe>
+                  </div>
+                  <p>Le 2 avril a lieu la Journée mondiale de sensibilisation à l'autisme. Elle vise à mieux informer le
+                    grand public sur les réalités de ce trouble du développement.</p>
+                </li>
+              </ul>
+            </section>
           </div>
         </div>
       </div>
-      <div class="container">
-      <div class="row justify-content-md-center">
-      <div class="col-md-12">
-          {% if messages %}
-            {% for message in messages %}
-              <div class="alert alert-{{ message.tags }} text-align-center">
-                {{ message }}
-              </div>
-            {% endfor %}
-          {% endif %}
-          
-        </div></div></div>
-      <!-- End Notice Bar --> 
-      <!-- Start Content -->
-      <div class="main" role="main">
-        <div id="content" class="content full">
-          <div class="container">
-            <div class="row"> 
-              <!-- Start Featured Blocks -->
-              <div class="featured-blocks clearfix">
-                <div class="col-md-4 col-sm-4 featured-block"> <a href="our-staff.html" class="img-thumbnail"> <img src="{% static 'images/actions.jpg' %}" alt="staff"> <strong>Nos Actions</strong> <span class="more">En savoir plus</span> </a> </div>
-                <div class="col-md-4 col-sm-4 featured-block"> <a href="about.html" class="img-thumbnail"> <img src="{% static 'images/projets.jpg' %}" alt="staff"> <strong>Nos Projets</strong> <span class="more">En savoir plus</span> </a> </div>
-                <div class="col-md-4 col-sm-4 featured-block"> <a href="sermons.html" class="img-thumbnail"> <img src="{% static 'images/bénévoles.jpg' %}" alt="staff"> <strong>Les bénévoles</strong> <span class="more">En savoir plus</span> </a> </div>
-              </div>
-              <!-- End Featured Blocks --> 
-            </div>
-            <div class="row">
-              <div class="col-md-8 col-sm-6"> 
-                <!-- Events Listing -->
-                <div class="listing events-listing">
-                  <header class="listing-header">
-                    <h3>Plus d'évènements à venir</h3>
-                  </header>
-                  <section class="listing-cont">
-                    <ul>
-                        {% for event in events %}
-                      <li class="item event-item">
-                        <div class="event-date"> <span class="date">{{ event.date|date:"d" }}</span> <span class="month">{{ event.date|date:"b" }}</span> </div>
-                        <div class="event-detail">
-                          <h4><a href="{% url 'event-detail' event.id %}">{{ event.title }}</a></h4>
-                          <span class="event-dayntime meta-data">{{ event.date|date:"l" }} | {{ event.starthour|date:"G:i" }}-{{ event.endhour|date:"G:i" }}</span> </div>
-                        <div class="to-event-url">
-                          <div><a href="{% url 'event-detail' event.id %}" class="btn btn-warning btn-sm">Détails</a></div>
-                        </div>
-                      </li>
-                      {% endfor %}
-                    </ul>
-                  </section>
-                </div>
-                <div class="spacer-30"></div>
-                <!-- Latest News -->
-                <div class="listing post-listing">
-                  <header class="listing-header">
-                    <h3>Dernières nouvelles</h3>
-                  </header>
-                  <section class="listing-cont">
-                    <ul>
-                        {% for post in posts %}
-                      <li class="item post">
-                        <div class="row">
-                          <div class="col-md-4"> <a href="{{ post.image.url }}" class="media-box"> <img src="{{ post.image.url }}" alt="{{ post.title }}" class="img-thumbnail"> </a></div>
-                          <div class="col-md-8">
-                            <div class="post-title">
-                              <h2><a href="{% url 'post-detail' post.id %}">{{ post.title }}</a></h2>
-                              <span class="meta-data"><i class="fa fa-calendar"></i> {{ post.date_posted|date:"d F, Y" }}</span></div>
-                            <p>{{ post.previewtext }}</p>
-                          </div>
-                        </div>
-                      </li>
-                      {% endfor %}
-                    </ul>
-                  </section>
-                </div>
-              </div>
-              <!-- Start Sidebar -->
-              <div class="col-md-4 col-sm-6"> 
-                <!-- Latest Sermons -->
-                <div class="listing sermons-listing">
-                  <header class="listing-header">
-                    <h3>Le rendez-vous annuel</h3>
-                  </header>
-                  <section class="listing-cont">
-                    <ul>
-                      <li class="item sermon featured-sermon"> <span class="date">Feb 14, 2019</span>
-                        <h4><a href="single-sermon.html">Journée de sensibilisation à l'autisme</a></h4>
-                        <div class="featured-sermon-video">
-                          <iframe width="200" height="150" src="http://player.vimeo.com/video/19564018?title=0&amp;byline=0&amp;color=007F7B"></iframe>
-                        </div>
-                        <p>Le 2 avril a lieu la Journée mondiale de sensibilisation à l'autisme. Elle vise à mieux informer le grand public sur les réalités de ce trouble du développement.</p>
-                        </li>
-                    </ul>
-                  </section>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+    </div>
+  </div>
+</div>
+<!-- Start Featured Gallery -->
+<div class="featured-gallery">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3 col-sm-3">
+        <h4>Les derniers ajouts de la galerie</h4>
+        <a href="{% url 'blog-saved_gallery' %}" class="btn btn-default btn-lg">Plus de contenu</a>
       </div>
-      <!-- Start Featured Gallery -->
-      <div class="featured-gallery">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-3 col-sm-3">
-              <h4>Les derniers ajouts de la galerie</h4>
-              <a href="{% url 'blog-saved_gallery' %}" class="btn btn-default btn-lg">Plus de contenu</a> </div>
-            {% for gallery in gallerys%}
-              <div class="col-md-3 col-sm-3 post format-image"> <a href="{{ gallery.image.url }}" class="media-box" data-rel="prettyPhoto[Gallery]"> <img src="{{gallery.image.url}}" alt="{{gallery.title}}"> </a> </div>
-            {% endfor %}
-          </div>
-        </div>
-      </div>
+      {% for gallery in gallerys%}
+      <div class="col-md-3 col-sm-3 post format-image"> <a href="{{ gallery.image.url }}" class="media-box"
+          data-rel="prettyPhoto[Gallery]"> <img src="{{gallery.image.url}}" alt="{{gallery.title}}"> </a> </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
 
 {% endblock content %}

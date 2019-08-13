@@ -37,4 +37,9 @@
     .login {
         width: 100% !important;
     }
+    .btnhome i{
+        position: absolute!important;
+        bottom: 20px!important;
+        left: 7px!important;
+    }
 }

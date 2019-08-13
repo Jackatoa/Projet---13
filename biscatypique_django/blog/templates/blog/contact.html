@@ -2,86 +2,87 @@
 {% load static %}
 {% load crispy_forms_tags %}
 {% block content %}
-  <!-- End Site Header --> 
-  <!-- Start Nav Backed Header -->
-  <div class="nav-backed-header parallax">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <ol class="breadcrumb">
-            <li><a href="{% url 'blog-home' %}">Accueil</a></li>
-            <li class="active">Contact</li>
-          </ol>
-        </div>
+<!-- End Site Header -->
+<!-- Start Nav Backed Header -->
+<div class="nav-backed-header parallax">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <ol class="breadcrumb">
+          <li><a href="{% url 'blog-home' %}">Accueil</a></li>
+          <li class="active">Contact</li>
+        </ol>
       </div>
     </div>
   </div>
-  <!-- End Nav Backed Header --> 
-  <!-- Start Page Header -->
-  <div class="page-header">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <h1>Contact</h1>
-        </div>
+</div>
+<!-- End Nav Backed Header -->
+<!-- Start Page Header -->
+<div class="page-header">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h1>Contact</h1>
       </div>
     </div>
   </div>
+</div>
 
-  <!-- End Page Header --> 
-  <!-- Start Content -->
-  <div class="main" role="main">
-    <div id="content" class="content full">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <header class="single-post-header clearfix">
-              <h2 class="post-title">Notre location</h2>
-            </header>
-            <div class="post-content">
-              <div id="gmap">
-                <iframe src="https://maps.google.com/?ie=UTF8&amp;ll=44.3904387,-1.1606937&amp;spn=0.043846,0.077162&amp;t=m&amp;z=14&amp;output=embed"></iframe>
-              </div>
-              <div class="row">
-                <form method="post">
-                  {% csrf_token %}
-                  <div class="col-md-3 margin-15">
-                    <div class="form-group">
-                        
-                    </div>
-                    <div class="form-group">
-                      {{ form.nom|as_crispy_field }}
-                 
+<!-- End Page Header -->
+<!-- Start Content -->
+<div class="main" role="main">
+  <div id="content" class="content full">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <header class="single-post-header clearfix">
+            <h2 class="post-title">Notre location</h2>
+          </header>
+          <div class="post-content">
+            <div id="gmap">
+              <iframe
+                src="https://maps.google.com/?ie=UTF8&amp;ll=44.3904387,-1.1606937&amp;spn=0.043846,0.077162&amp;t=m&amp;z=14&amp;output=embed"></iframe>
+            </div>
+            <div class="row">
+              <form method="post">
+                {% csrf_token %}
+                <div class="col-md-3 margin-15">
+                  <div class="form-group">
+
                   </div>
-                    <div class="form-group">
-                        {{ form.sujet|as_crispy_field }}</div>
-                    <div class="form-group">
-                        {{ form.email|as_crispy_field }}
-                   
-                    </div>
+                  <div class="form-group">
+                    {{ form.nom|as_crispy_field }}
+
                   </div>
-                  <div class="col-md-9">
-                    <div class="form-group">
-                        {{ form.message|as_crispy_field }}</div>
+                  <div class="form-group">
+                    {{ form.sujet|as_crispy_field }}</div>
+                  <div class="form-group">
+                    {{ form.email|as_crispy_field }}
+
                   </div>
-                  <div class="col-md-12">
-                      <button class="btn btn-primary btn-lg pull-right type="submit">Envoyer</button>
-                  </div>
-                </form>
-                
-                
-                <div class="clearfix"></div>
-                <div class="col-md-12">
-                  <div id="message"></div>
                 </div>
+                <div class="col-md-9">
+                  <div class="form-group">
+                    {{ form.message|as_crispy_field }}</div>
+                </div>
+                <div class="col-md-12">
+                  <button class="btn btn-primary btn-lg pull-right type=" submit">Envoyer</button>
+                </div>
+              </form>
+
+
+              <div class="clearfix"></div>
+              <div class="col-md-12">
+                <div id="message"></div>
               </div>
             </div>
           </div>
-          <!-- Start Sidebar -->
         </div>
+        <!-- Start Sidebar -->
       </div>
     </div>
   </div>
-  <!-- Start Footer -->
+</div>
+<!-- Start Footer -->
 
 {% endblock content %}

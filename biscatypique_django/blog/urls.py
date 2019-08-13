@@ -56,4 +56,8 @@ urlpatterns = [
     path('staff/', views.staff, name='blog-staff'),
     path('contact/', views.contact, name='blog-contact'),
     path('tsa_day/', views.tsa_day, name='blog-tsa_day'),
+    path('project/', views.project, name='blog-project'),
+    path('action/', views.action, name='blog-action'),
+    path('partners/', views.partners, name='blog-partners'),
+    
 ]

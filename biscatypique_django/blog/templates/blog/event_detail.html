@@ -1,82 +1,85 @@
 {% extends "blog/base.html" %}
 {% load crispy_forms_tags %}
 {% block content %}
-  <!-- End Nav Backed Header --> 
+<!-- End Nav Backed Header -->
 
-  <div class="nav-backed-header parallax">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <ol class="breadcrumb">
-              <li><a href="{% url 'blog-home' %}">Accueil</a></li>
-              <li><a href="{% url 'blog-saved_events' %}">Evènements</a></li>
-              <li class="active">{{ event.title }}</li>
-            </ol>
-          </div>
-        </div>
+<div class="nav-backed-header parallax">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <ol class="breadcrumb">
+          <li><a href="{% url 'blog-home' %}">Accueil</a></li>
+          <li><a href="{% url 'blog-saved_events' %}">Evènements</a></li>
+          <li class="active">{{ event.title }}</li>
+        </ol>
       </div>
     </div>
-    <!-- End Nav Backed Header --> 
-    <!-- Start Page Header -->
-    <div class="page-header">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-10 col-sm-10 col-xs-8">
-            <h1>Evènement
-            </h1>
-            {% if user.is_authenticated %}
-              <div>
-                  <a class="btn btn-success btn-sm mt-1 mb-1" href="{% url 'event-update' object.id %}">Mettre à jour</a>
-                  <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'event-delete' object.id %}">Supprimer</a>
-                </div>
+  </div>
+</div>
+<!-- End Nav Backed Header -->
+<!-- Start Page Header -->
+<div class="page-header">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-10 col-sm-10 col-xs-8">
+        <h1>Evènement
+        </h1>
+        {% if user.is_authenticated %}
+        <div>
+          <a class="btn btn-success btn-sm mt-1 mb-1" href="{% url 'event-update' object.id %}">Mettre à jour</a>
+          <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'event-delete' object.id %}">Supprimer</a>
+        </div>
         {% endif %}
-          </div>
-          <div class="col-md-2 col-sm-2 col-xs-4"> <a href="{% url 'blog-saved_events' %}" class="pull-right btn btn-primary">Tous les évènements</a> </div>
-        </div>
       </div>
+      <div class="col-md-2 col-sm-2 col-xs-4"> <a href="{% url 'blog-saved_events' %}"
+          class="pull-right btn btn-primary">Tous les évènements</a> </div>
     </div>
-    <!-- End Page Header --> 
-    <!-- Start Content -->
-    <div class="main" role="main">
-      <div id="content" class="content full">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-9">
-              <header class="single-post-header clearfix">
-                <h2 class="post-title">{{ event.title}} </h2>
-              </header>
-              <article class="post-content">
-                <div class="event-description"> <img src="{{ event.image.url }}" class="img-responsive">
-                  <div class="spacer-20"></div>
-                  <div class="row">
-                    <div class="col-md-12">
-                      <div class="panel panel-default">
-                        <div class="panel-heading">
-                          <h3 class="panel-title">Détails de l'évènement</h3>
-                        </div>
-                        <div class="panel-body">
-                          <ul class="info-table">
-                            <li><i class="fa fa-calendar"></i> <strong>{{ event.date|date:"l" }}</strong> | {{ event.date|date:"d F" }}</li>
-                            <li><i class="fa fa-clock-o"></i> {{ event.starthour }} - {{ event.endhour }}</li>
-                            <li><i class="fa fa-map-marker"></i> {{ event.adress }}</li>
-                            <li><i class="far fa-money-bill-alt"></i> {{ event.price }} €</li>
-                          </ul>
-                        </div>
-                      </div>
+  </div>
+</div>
+<!-- End Page Header -->
+<!-- Start Content -->
+<div class="main" role="main">
+  <div id="content" class="content full">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-9">
+          <header class="single-post-header clearfix">
+            <h2 class="post-title">{{ event.title}} </h2>
+          </header>
+          <article class="post-content">
+            <div class="event-description"> <img src="{{ event.image.url }}" class="img-responsive">
+              <div class="spacer-20"></div>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="panel panel-default">
+                    <div class="panel-heading">
+                      <h3 class="panel-title">Détails de l'évènement</h3>
                     </div>
-                    
+                    <div class="panel-body">
+                      <ul class="info-table">
+                        <li><i class="fa fa-calendar"></i> <strong>{{ event.date|date:"l" }}</strong> |
+                          {{ event.date|date:"d F" }}</li>
+                        <li><i class="fa fa-clock-o"></i> {{ event.starthour }} - {{ event.endhour }}</li>
+                        <li><i class="fa fa-map-marker"></i> {{ event.adress }}</li>
+                        <li><i class="far fa-money-bill-alt"></i> {{ event.price }} €</li>
+                      </ul>
+                    </div>
                   </div>
-                  <p>{{ event.content }}</p></div>
-              </article>
+                </div>
+
+              </div>
+              <p>{{ event.content }}</p>
             </div>
-            <!-- Start Sidebar -->
-            
-            </div>
-          </div>
+          </article>
         </div>
+        <!-- Start Sidebar -->
+
       </div>
     </div>
-  <!-- Start Page Header -->
-  
-              
-  {% endblock content %}
+  </div>
+</div>
+</div>
+<!-- Start Page Header -->
+
+
+{% endblock content %}

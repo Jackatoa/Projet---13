@@ -3,68 +3,90 @@
 {% block content %}
 
 <div class="nav-backed-header parallax" style="background-image:url({% static 'images/sky.jpg'%});">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <ol class="breadcrumb">
-            <li><a href="{% url 'blog-home' %}">Accueil</a></li>
-            <li class="active">Evènements</li>
-          </ol>
-        </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <ol class="breadcrumb">
+          <li><a href="{% url 'blog-home' %}">Accueil</a></li>
+          <li class="active">Evènements</li>
+        </ol>
       </div>
     </div>
   </div>
-  <!-- End Nav Backed Header --> 
-  <!-- Start Page Header -->
-  <div class="page-header">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <h1>Grille des évènements</h1>
-        </div>
+</div>
+<!-- End Nav Backed Header -->
+<!-- Start Page Header -->
+<div class="page-header">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h1>Grille des évènements</h1>
       </div>
     </div>
   </div>
-  <!-- End Page Header --> 
-  <!-- Start Content -->
-  <div class="main" role="main">
-    <div id="content" class="content full">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <ul class="grid-holder col-3 events-grid">
-                {% for event in events %}
-              <li class="grid-item format-standard">
-                <div class="grid-item-inner"> <a href="{{ event.image.url }}" class="media-box"> <img src="{{ event.image.url }}" alt=""> </a>
-                  <div class="grid-content">
-                    <h3><a href="{% url 'event-detail' event.id %}">{{ event.title }}</a></h3>
-                    <p>{{ event.content }}</p>
-                  </div>
-                  <ul class="info-table">
-                    <li><i class="fa fa-calendar"></i> {{ event.date|date:"l d F" }} | {{ event.starthour }} - {{ event.endhour }}</li>
-                    <li><i class="fa fa-map-marker"></i> {{ event.adress }}</li>
-                    <li><i class="far fa-money-bill-alt"></i> {{ event.price }} €</li>
-                    <li><span class=""><a href="{% url 'event-detail' event.id %}" class="btn btn-warning btn-sm">Détails</a></span></li>
-                      {% if user.is_authenticated %}
-                      <li>
-                          <span class="btnevent">
-                        <a class="pull-left btn btn-success btn-sm mt-1 mb-1" href="{% url 'event-update' event.id %}">Mettre à jour</a>
-                        <a class="pull-right btn btn-danger btn-sm mt-1 mb-1" href="{% url 'event-delete' event.id %}">Supprimer</a></span>
-                      </li>
-                    {% endif %}
-                  </ul>
+</div>
+<!-- End Page Header -->
+<!-- Start Content -->
+<div class="main" role="main">
+  <div id="content" class="content full">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <ul class="grid-holder col-3 events-grid">
+            {% for event in events %}
+            <li class="grid-item format-standard">
+              <div class="grid-item-inner"> <a href="{{ event.image.url }}" class="media-box"> <img
+                    src="{{ event.image.url }}" alt=""> </a>
+                <div class="grid-content">
+                  <h3><a href="{% url 'event-detail' event.id %}">{{ event.title }}</a></h3>
+                  <p>{{ event.content }}</p>
                 </div>
-              </li>
-              {% endfor %}
-            </ul>
-            <ul class="pager pull-right">
-              <li><a href="#">&larr; Older</a></li>
-              <li><a href="#">Newer &rarr;</a></li>
-            </ul>
-          </div>
+                <ul class="info-table">
+                  <li><i class="fa fa-calendar"></i> {{ event.date|date:"l d F" }} | {{ event.starthour }} -
+                    {{ event.endhour }}</li>
+                  <li><i class="fa fa-map-marker"></i> {{ event.adress }}</li>
+                  <li><i class="far fa-money-bill-alt"></i> {{ event.price }} €</li>
+                  <li><span class=""><a href="{% url 'event-detail' event.id %}"
+                        class="btn btn-warning btn-sm">Détails</a></span></li>
+                  {% if user.is_authenticated %}
+                  <li>
+                    <span class="btnevent">
+                      <a class="pull-left btn btn-success btn-sm mt-1 mb-1"
+                        href="{% url 'event-update' event.id %}">Mettre à jour</a>
+                      <a class="pull-right btn btn-danger btn-sm mt-1 mb-1"
+                        href="{% url 'event-delete' event.id %}">Supprimer</a></span>
+                  </li>
+                  {% endif %}
+                </ul>
+              </div>
+            </li>
+            {% endfor %}
+          </ul>
+          {% if is_paginated %}
+          <ul class="pagination">
+            {% if page_obj.has_previous %}
+            <li><a href="?page={{ page_obj.previous_page_number }}"><i class="fa fa-chevron-left"></i></a></li>
+            {% endif %}
+
+            {% for num in page_obj.paginator.page_range %}
+            {% if page_obj.number == num %}
+            <li class="active"><a href="?page={{ num }}">{{ num }}</a></li>
+            {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+
+            <li><a href="?page={{ num }}">{{ num }}</a></li>
+            {% endif %}
+            {% endfor %}
+
+            {% if page_obj.has_next %}
+
+            <li><a href="?page={{ page_obj.next_page_number }}"><i class="fa fa-chevron-right"></i></a></li>
+            {% endif %}
+          </ul>
+          {% endif %}
         </div>
       </div>
     </div>
   </div>
+</div>
 
 {% endblock content %}

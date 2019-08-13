@@ -1,36 +1,36 @@
 {% extends "blog/base.html" %}
 {% load crispy_forms_tags %}
 {% block content %}
-    <div class="main" role="main">
-            <div id="content" class="content full">
-              <div class="container">
-                <div class="row">
-                  <div class="col-md-12">
-                    <header class="single-post-header clearfix">
-                      <h2 class="post-title postform">Nouvel Evènement</h2>
-                    </header>
-                    <div class="post-content">
-                      
-                      <div class="row">
-                        <form method="POST" enctype="multipart/form-data">
-                            {% csrf_token %}
-                          <fieldset class="col-md-12 margin-15 postform form-group">
-                            {{ form|crispy }}
-                            </fieldset>
-                          <div class="form-group">
-                            
-                            <button type="submit" class="btn btn-primary btn-lg pull-right">Publier !</button>
-                          </div>
-                        </form>
-                
-                        
+<div class="main" role="main">
+  <div id="content" class="content full">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <header class="single-post-header clearfix">
+            <h2 class="post-title postform">Nouvel Evènement</h2>
+          </header>
+          <div class="post-content">
+            <div class="row">
+              <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <fieldset class="col-md-12 margin-15 postform form-group">
+                  {{ form|crispy }}
+                </fieldset>
+                <div class="form-group">
+                  <button type="submit" class="btn btn-primary btn-lg pull-right">Publier !</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-                    </div>
-                  </div></div></div></div></div></div>
 
-                  
-                  <!-- Start Sidebar -->
-                
-          
-        
+<!-- Start Sidebar -->
+
+
+
 {% endblock content %}

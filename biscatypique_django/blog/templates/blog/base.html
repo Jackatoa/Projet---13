@@ -53,7 +53,8 @@
           </div>
           <div class="col-md-8 col-sm-6 col-xs-4">
             <ul class="top-navigation hidden-sm hidden-xs">
-              <li><a style="font-size: 12px;" class="label label-primary donate" href="{% url 'blog-contact' %}">Soutenez nous</a></li>
+              <li><a style="font-size: 12px;" class="label label-primary donate"
+                  href="{% url 'blog-contact' %}">Soutenez nous</a></li>
             </ul>
             <a href="#" class="visible-sm visible-xs menu-toggle"><i class="fa fa-bars"></i></a>
           </div>
@@ -124,7 +125,7 @@
                     </li>
                   </ul>
                 </li>
-                <li><a href="causes.html">Nos partenaires</a>
+                <li><a href="{% url 'blog-partners' %}">Nos partenaires</a>
                 <li><a href="{% url 'blog-saved_gallery' %}">Gallerie</a>
                 </li>
               </ul>

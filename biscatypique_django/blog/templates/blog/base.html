@@ -153,6 +153,7 @@
             <li><a href="{% url 'blog-home' %}">Accueil</a></li>
             <li><a href="about.html">A propos de nous</a></li>
             <li><a href="{% url 'blog-saved_events' %}">Les événements</a></li>
+            <li><a href="{% url 'blog-saved_posts' %}">Les publications</a></li>
             {% if user.is_authenticated %}
             <li><a href="{% url 'blog-gestion' %}">Gestion</a></li>
             <li><a href="{% url 'logout' %}">Se déconnecter</a></li>

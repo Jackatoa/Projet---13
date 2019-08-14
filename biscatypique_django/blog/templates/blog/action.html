@@ -39,20 +39,28 @@
             <header class="post-title">
               <div class="row">
                 <div class="col-md-12 col-sm-12">
-                  <h3><a href="single-sermon.html">Voluptatum deleniti atque corrupti</a></h3>
+                  <h3><a href="{% url 'blog-saved_events' %}">Cinéma'Typique</a></h3>
                 </div>
             </header>
             <div class="post-content">
               <div class="row">
-                <div class="col-md-4"> <a href="single-sermon.html" class="media-box"> <img
-                      src="http://placehold.it/800x600&amp;text=IMAGE+PLACEHOLDER" alt="" class="img-thumbnail">
+                <div class="col-md-4"> <a href="{% url 'blog-saved_events' %}" class="media-box"> <img
+                      src="{% static 'images/camera.jpg' %}" alt="" class="img-thumbnail">
                   </a> </div>
                 <div class="col-md-8">
-                  <p >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla convallis egestas rhoncus. Donec
-                    facilisis fermentum sem, ac viverra ante luctus vel. Donec vel mauris quam. Lorem ipsum dolor
-                    sit amet, consectetur adipiscing elit. Nulla convallis egestas rhoncus. Donec facilisis
-                    fermentum sem, ac viverra ante luctus vel. Donec vel mauris quam.</p>
-                  <p><a href="single-sermon.html" class="btn btn-primary">Continue reading <i
+                  <p >Quand le second art se met au service de l'inclusion.
+                    ​
+                    Parce que le cinéma ne doit pas être une épreuve pour les familles.
+                    Parce que la culture est une invitation et non une exclusion.
+                    ​
+                    ​
+                    En partenariat avec le cinéma "le Renoir" de Biscarrosse, les séances s'adaptent aux publics.
+                    Encadré par des bénévoles de l'association
+                    Un son atténué
+                    Un éclairage léger
+                    un film sélectionné pour son histoire et ses images
+                    Un tarif réduit pour tous</p>
+                  <p class="pull-right"><a href="{% url 'blog-saved_events' %}" class="btn btn-primary">Prochains évènements <i
                         class="fa fa-long-arrow-right"></i></a></p>
                 </div>
               </div>
@@ -62,34 +70,75 @@
             <header class="post-title">
               <div class="row">
                 <div class="col-md-12 col-sm-12">
-                  <h3><a href="single-sermon.html">Voluptatum deleniti atque corrupti</a></h3>
+                  <h3 class="pull-right"><a href="{% url 'blog-saved_events' %}">Café Parents</a></h3>
                 </div>
             </header>
             <div class="post-content">
               <div class="row">
                 <div class="col-md-8">
-                  <p class="actionright">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla convallis egestas rhoncus. Donec
-                    facilisis fermentum sem, ac viverra ante luctus vel. Donec vel mauris quam. Lorem ipsum dolor
-                    sit amet, consectetur adipiscing elit. Nulla convallis egestas rhoncus. Donec facilisis
-                    fermentum sem, ac viverra ante luctus vel. Donec vel mauris quam.</p>
-                  <p><a href="single-sermon.html" class="btn btn-primary">Continue reading <i
+                  <p class="actionright">Tous les deuxièmes vendredi du mois, un café pour se rencontrer entre parents.
+                    Pour se soutenir et échanger des idées, des actions, son expérience.</p>
+                  <p><a href="{% url 'blog-saved_events' %}" class="btn btn-primary">Prochains évènements <i
                         class="fa fa-long-arrow-right"></i></a></p>
                 </div>
-                <div class="col-md-4"> <a href="single-sermon.html" class="media-box"> <img
-                      src="http://placehold.it/800x600&amp;text=IMAGE+PLACEHOLDER" alt="" class="img-thumbnail">
+                <div class="col-md-4"> <a href="{% url 'blog-saved_events' %}" class="media-box"> <img
+                      src="{% static 'images/parent.jpg' %}" alt="" class="img-thumbnail">
                   </a> </div>
               </div>
             </div>
           </article>
-          <ul class="pagination">
-            <li><a href="#"><i class="fa fa-chevron-left"></i></a></li>
-            <li class="active"><a href="#">1</a></li>
-            <li><a href="#">2</a></li>
-            <li><a href="#">3</a></li>
-            <li><a href="#">4</a></li>
-            <li><a href="#">5</a></li>
-            <li><a href="#"><i class="fa fa-chevron-right"></i></a></li>
-          </ul>
+
+          <article class="post sermon">
+            <header class="post-title">
+              <div class="row">
+                <div class="col-md-12 col-sm-12">
+                  <h3><a href="{% url 'blog-saved_events' %}">Café Fratrie</a></h3>
+                </div>
+            </header>
+            <div class="post-content">
+              <div class="row">
+                <div class="col-md-4"> <a href="{% url 'blog-saved_events' %}" class="media-box"> <img
+                      src="{% static 'images/coffee.jpg' %}" alt="" class="img-thumbnail">
+                  </a> </div>
+                <div class="col-md-8">
+                  <p >Un moment d'échange et de rencontre pour les frères et sœurs d'enfants atypiques, porteur de Troubles du Spectre Autistique.
+                    Encadré par une psychologue, vous pourrez trouver une écoute attentive et compréhensive aux difficultés que vos enfants peuvent traverser.</p>
+                  <p class="pull-right"><a href="{% url 'blog-saved_events' %}" class="btn btn-primary">Prochains évènements <i
+                        class="fa fa-long-arrow-right"></i></a></p>
+                </div>
+              </div>
+            </div>
+          </article>
+          <article class="post sermon">
+            <header class="post-title">
+              <div class="row">
+                <div class="col-md-12 col-sm-12">
+                  <h3 class="pull-right"><a href="{% url 'blog-saved_events' %}">Sport Atypique</a></h3>
+                </div>
+            </header>
+            <div class="post-content">
+              <div class="row">
+                <div class="col-md-8">
+                  <p class="actionright">Le Sport pour partager avec les autres.
+                    ​
+                    L'activité physique est partout autour de nous.
+                    Bonne pour l'esprit
+                    Bonne pour le corps
+                    Bonne pour l'émancipation et les échanges.
+                    Mais comment choisir. Est elle adaptée à ma différence ? Avec qui ?
+                    ​
+                    Bisc'Atypique vous propose de partir à la rencontre d'associations sportives présentant leurs activités.
+                    ​
+                    Pour cela les bénévoles de Bisc'Atypique  vous accompagne en famille ou seul dans la découverte des bienfaits de l'activité sportive non intensive et partagée.</p>
+                  <p><a href="{% url 'blog-saved_events' %}" class="btn btn-primary">Prochains évènements <i
+                        class="fa fa-long-arrow-right"></i></a></p>
+                </div>
+                <div class="col-md-4"> <a href="{% url 'blog-saved_events' %}" class="media-box"> <img
+                      src="{% static 'images/sport.jpg' %}" alt="" class="img-thumbnail">
+                  </a> </div>
+              </div>
+            </div>
+          </article>
         </div>
         <!-- Start Sidebar -->
       </div>

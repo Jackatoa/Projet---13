@@ -36,8 +36,6 @@ def contact(request):
     return render(request, "blog/contact.html", {'form': form}, {'title': 'Nous contacter'})
 
 
-def successView(request):
-    return HttpResponse('Success! Thank you for your message.')
 
 class HomeView(ListView):
     template_name = 'blog/accueil.html'
@@ -63,6 +61,8 @@ class HomeView(ListView):
 
     def get_queryset(self):
         return Post.objects.order_by('-date_posted')
+def test(request):
+    return render(request, '404.html', {'title': 'Nos projets'})
 
 def home(request):
     context = {

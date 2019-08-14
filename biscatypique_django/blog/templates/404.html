@@ -1,44 +1,59 @@
 {% extends "blog/base.html" %}
 {% load static %}
 {% block content %}
-  <!-- End Site Header --> 
-  <!-- Start Nav Backed Header -->
-  <div class="nav-backed-header parallax" style="background-image:url(images/slide2.jpg);">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <ol class="breadcrumb">
-            <li><a href="index.html">Home</a></li>
-            <li class="active">404 Error</li>
-          </ol>
-        </div>
+<!-- End Site Header -->
+<!-- Start Nav Backed Header -->
+<div class="nav-backed-header parallax" style="background-image:url({% static 'images/sky.jpg' %});">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <ol class="breadcrumb">
+          <li><a href="{% url 'blog-home' %}">Accueil</a></li>
+          <li class="active">Erreur 404</li>
+        </ol>
       </div>
     </div>
   </div>
-  <!-- End Nav Backed Header --> 
-  <!-- Start Page Header -->
-  <div class="page-header">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <h1>Page not found</h1>
-        </div>
+</div>
+<div style="height:650px;">
+<div class="box">
+  <div class="box__ghost">
+    <div class="symbol"></div>
+    <div class="symbol"></div>
+    <div class="symbol"></div>
+    <div class="symbol"></div>
+    <div class="symbol"></div>
+    <div class="symbol"></div>
+    
+    <div class="box__ghost-container">
+      <div class="box__ghost-eyes">
+        <div class="box__eye-left"></div>
+        <div class="box__eye-right"></div>
+      </div>
+      <div class="box__ghost-bottom">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
       </div>
     </div>
+    <div class="box__ghost-shadow"></div>
   </div>
-  <!-- End Page Header --> 
-  <!-- Start Content -->
-  <div class="main" role="main">
-    <div id="content" class="content full">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <h1 class="huge">404</h1>
-            <p>Sorry but the page you were looking isn't here. Please go back to <a href="index.html">Homepage</a> or search again.</p>
-            
-          </div>
-        </div>
-      </div>
+  
+  <div class="box__description">
+    <div class="box__description-container">
+      <div class="box__description-title">Oups !</div>
+      <div class="box__description-text">La page recherchée ne semble pas être là... A moins que...</div>
     </div>
+    
+    <a href="javascript:history.back()" target="_blank" class="box__button">Page précédente</a>
+    
   </div>
+  
+</div>
+</div>
+
+<!-- End Nav Backed Header -->
+<!-- Start Page Header -->
 {% endblock %}

@@ -35,6 +35,7 @@ from .views import (EventListView,
 
 urlpatterns = [
     path('', views.home, name='blog-home'),
+    path('test/', views.test, name='blog-test'),
     path('accueil/', HomeView.as_view(), name='blog-home'),
     path('gestion/', views.gestion, name='blog-gestion'),
     path('saved_events/', EventListView.as_view(), name='blog-saved_events'),

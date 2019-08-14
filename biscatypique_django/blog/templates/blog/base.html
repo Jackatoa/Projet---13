@@ -70,7 +70,7 @@
                 <li><a class="btn btnhome btn-primary" href="{% url 'blog-home' %}"><i
                       class="fas fa-home fa-5x"></i></a>
                 </li>
-                <li><a href="about.html">L'association</a>
+                <li><a href="{% url 'blog-presentation' %}">L'association</a>
                   <ul class="dropdown">
                     <li><a href="{% url 'blog-presentation' %}">Présentation</a></li>
                     <li><a href="{% url 'blog-staff' %}">L'équipe</a></li>
@@ -78,7 +78,7 @@
                     <li><a href="{% url 'blog-saved_posts' %}">Nouvelles</a></li>
                   </ul>
                 </li>
-                <li><a href="events.html">Les événements</a>
+                <li><a href="{% url 'blog-saved_events' %}">Les événements</a>
                   <ul class="dropdown">
                     <li><a href="{% url 'blog-action' %}">Présentation</a></li>
                     <li><a href="{% url 'blog-saved_events' %}">A venir</a></li>
@@ -87,7 +87,7 @@
                 </li>
 
                 </li>
-                <li class="megamenu"><a href="shortcodes.html">L'autisme</a>
+                <li class="megamenu"><a href="{% url 'blog-tsa_descri'%}">L'autisme</a>
                   <ul class="dropdown">
                     <li>
                       <div class="megamenu-container container">
@@ -144,8 +144,9 @@
           <h4 class="footer-widget-title">A propos de l'association</h4>
           <img src="{% static 'images/logo.png' %}" alt="Logo">
           <div class="spacer-20"></div>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla convallis egestas rhoncus. Donec facilisis
-            consectetur adipiscing elit. Nulla convallis egestas rhoncus</p>
+          <p>L’association Bisc’Atypique est une association loi 1901 qui a vu le jour en Janvier 2018
+            Sa mission principale est de mener toute action en faveur des personnes présentant des troubles du spectre autistique et toute autres formes de différences handicapantes.
+            Notre association a été créée pour rassembler les personnes en lien avec le handicap sur le territoire Nord Landes/Sud Gironde. Elle souhaite fédérer les différents acteurs locaux pour une même cause : soutenir, informer, sensibiliser et mettre en relation familles, associations, institutions et professionnels.</p>
         </div>
         <div class="col-md-4 col-sm-4 widget footer-widget">
           <h4 class="footer-widget-title">Fil principal</h4>

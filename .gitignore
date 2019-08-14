@@ -2,6 +2,7 @@ venv/
 .idea/
 Livrable/
 prez/
+biscatypique_django/media/profile_pics/
 app\__pycache__/
 app\__pycache__
 app/config.py

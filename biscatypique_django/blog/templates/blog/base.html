@@ -100,24 +100,24 @@
                           <div class="col-md-3"> <span class="megamenu-sub-title"><i class="fas fa-question-circle"></i>
                               Qu'est ce que c'est ?</span>
                             <ul class="sub-menu">
-                              <li><a href="ministry.html">Description</a></li>
-                              <li><a href="ministry.html">Etat des lieux</a></li>
-                              <li><a href="ministry.html">Dépistage</a></li>
+                              <li><a href="{% url 'blog-tsa_descri'%}">Description</a></li>
+                              <li><a href="{% url 'blog-tsa_state'%}">Etat des lieux</a></li>
+                              <li><a href="{% url 'blog-tsa_depis'%}">Dépistage</a></li>
                             </ul>
                           </div>
                           <div class="col-md-3"> <span class="megamenu-sub-title"><i class="fas fa-book"></i> En
                               pratique</span>
                             <ul class="sub-menu">
-                              <li><a href="single-event.html">L'accompagnement</a></li>
-                              <li><a href="single-event.html">La prise en charge</a> </li>
-                              <li><a href="single-event.html">Les alternatives</a> </li>
+                              <li><a href="{% url 'blog-tsa_acco'%}">L'accompagnement</a></li>
+                              <li><a href="{% url 'blog-tsa_pris'%}">La prise en charge</a> </li>
+                              <li><a href="{% url 'blog-tsa_alte'%}">Les alternatives</a> </li>
                             </ul>
                           </div>
                           <div class="col-md-3"> <span class="megamenu-sub-title"><i class="fa fa-cog"></i> Pour aller
                               plus loin</span>
                             <ul class="sub-menu">
-                              <li><a href="shortcodes.html">Sites d'informations</a></li>
-                              <li><a href="typography.html">Ressources</a></li>
+                              <li><a href="{% url 'blog-tsa_info' %}">Sites d'informations</a></li>
+                              <li><a href="{% url 'blog-tsa_ress' %}">Ressources</a></li>
                             </ul>
                           </div>
                         </div>
@@ -126,7 +126,7 @@
                   </ul>
                 </li>
                 <li><a href="{% url 'blog-partners' %}">Nos partenaires</a>
-                <li><a href="{% url 'blog-saved_gallery' %}">Gallerie</a>
+                <li><a href="{% url 'blog-saved_gallery' %}">Galerie</a>
                 </li>
               </ul>
             </nav>

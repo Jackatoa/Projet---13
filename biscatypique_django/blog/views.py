@@ -108,7 +108,7 @@ def tsa_day(request):
     return render(request, 'blog/construction.html', {'title': 'Journée de sensibilisation à l\'autisme'})
 
 def mention(request):
-    return render(request, 'blog/mention.html', {'title': 'Mentions légales'})
+    return render(request, 'blog/construction.html', {'title': 'Mentions légales'})
 
 def staff(request):
     return render(request, 'blog/staff.html', {'title': 'Les bénévoles'})

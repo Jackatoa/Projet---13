@@ -25,7 +25,7 @@ from .views import (EventListView,
     PostUpdateView, 
     PostDeleteView,
     GalleryCreateView, 
-    GalleryUpdateView, 
+    GalleryUpdateView,
     GalleryDeleteView,
     EventDetailView, 
     EventCreateView, 
@@ -34,7 +34,7 @@ from .views import (EventListView,
     )
 
 urlpatterns = [
-    path('', views.home, name='blog-home'),
+    path('', HomeView.as_view(), name='blog-home'),
     path('test/', views.test, name='blog-test'),
     path('accueil/', HomeView.as_view(), name='blog-home'),
     path('gestion/', views.gestion, name='blog-gestion'),
